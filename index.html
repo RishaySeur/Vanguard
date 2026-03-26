@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>VANGUARD STUDIOS — Cinematic Real Estate Marketing · KZN</title>
+  <meta name="description"
+    content="Cinematic short-form reels for top-performing KZN agents. Stop the scroll, own your area — branded listing content delivered in 48 hours." />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;800;900&family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-fixed-variant": "#4d4544",
+            "on-tertiary-container": "#616263",
+            "error": "#ffb4ab",
+            "on-secondary": "#362f2e",
+            "tertiary-fixed": "#e2e2e2",
+            "primary-fixed": "#ffe170",
+            "surface": "#131313",
+            "surface-container-highest": "#353535",
+            "surface-tint": "#e5c43e",
+            "surface-bright": "#393939",
+            "on-tertiary": "#2f3131",
+            "on-tertiary-fixed-variant": "#454747",
+            "primary-container": "#ffdd55",
+            "on-primary-fixed": "#221b00",
+            "secondary-container": "#4f4746",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b1b",
+            "secondary-fixed-dim": "#d0c4c2",
+            "primary-fixed-dim": "#e5c43e",
+            "outline": "#98907b",
+            "on-secondary-container": "#c2b6b4",
+            "on-surface": "#e2e2e2",
+            "primary": "#fffbf9",
+            "on-primary": "#3a3000",
+            "on-error-container": "#ffdad6",
+            "secondary": "#d0c4c2",
+            "tertiary-container": "#dedfdf",
+            "surface-container": "#1f1f1f",
+            "background": "#131313",
+            "outline-variant": "#4c4635",
+            "on-tertiary-fixed": "#1a1c1c",
+            "surface-container-high": "#2a2a2a",
+            "inverse-on-surface": "#303030",
+            "on-secondary-fixed": "#201a19",
+            "on-background": "#e2e2e2",
+            "on-surface-variant": "#cfc6af",
+            "inverse-surface": "#e2e2e2",
+            "on-primary-container": "#746100",
+            "tertiary": "#fbfbfb",
+            "on-primary-fixed-variant": "#544600",
+            "surface-container-lowest": "#0e0e0e",
+            "secondary-fixed": "#ede0de",
+            "surface-dim": "#131313",
+            "surface-variant": "#353535",
+            "error-container": "#93000a",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "inverse-primary": "#705d00"
+          },
+          fontFamily: {
+            "headline": ["Epilogue", "sans-serif"],
+            "body": ["Manrope", "sans-serif"],
+            "label": ["Space Grotesk", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    /* ─── Base ──────────────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+
+    /* ─── Nav Glass ─────────────────────────────────────── */
+    .glass-nav {
+      background: rgba(19, 19, 19, 0.72);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    /* ─── Glass panel ───────────────────────────────────── */
+    .glass-panel {
+      background: rgba(19, 19, 19, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    /* ─── Text glow ─────────────────────────────────────── */
+    .text-glow {
+      text-shadow: 0 0 20px rgba(255, 225, 112, 0.35);
+    }
+
+    /* ─── Hide scrollbar ─────────────────────────────────── */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* ─── Input bottom-border only ──────────────────────── */
+    .input-field {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(76, 70, 53, 0.5);
+      outline: none;
+      transition: border-color 0.3s;
+      color: #e2e2e2;
+      width: 100%;
+      padding: 0.75rem 0;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .input-field:focus {
+      border-bottom-color: #ffe170;
+      box-shadow: 0 1px 0 0 #ffe170;
+    }
+
+    .input-field::placeholder {
+      color: rgba(226,226,226,0.45);
+    }
+
+    /* ─── Reveal animations ─────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Gradient CTA button shadow ────────────────────── */
+    .cta-shadow {
+      box-shadow: 0 8px 40px -10px rgba(255, 221, 85, 0.35);
+    }
+
+    /* ─── Cinematic scroller lens effect ────────────────── */
+    .lens-center {
+      filter: brightness(1);
+      transform: scale(1);
+    }
+
+    .lens-side {
+      filter: brightness(0.55) saturate(0.4);
+    }
+
+    /* ─── Mobile menu ───────────────────────────────────── */
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    #mobile-menu.open {
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    /* ─── Stat counter ─────────────────────────────────── */
+    .stat-num {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ─── Portfolio card hover ──────────────────────────── */
+    .port-card img {
+      transition: transform 0.7s ease, filter 0.5s ease;
+    }
+
+    .port-card:hover img {
+      transform: scale(1.05);
+      filter: brightness(0.9);
+    }
+
+    .port-card .port-meta {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .port-card:hover .port-meta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Pricing highlight ─────────────────────────────── */
+    .pricing-elite {
+      position: relative;
+    }
+
+    .pricing-elite::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ffe170, transparent);
+    }
+
+    /* ══════════════════════════════════════════════════════
+       HALIDE TOPO HERO
+    ══════════════════════════════════════════════════════ */
+
+    /* Grain overlay */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      filter: url(#hero-grain-filter);
+      opacity: 0.09;
+      pointer-events: none;
+      z-index: 25;
+      background: #fff;
+    }
+
+    /* Full interface overlay — sits above the 3D canvas */
+    .hero-interface {
+      position: absolute;
+      inset: 0;
+      padding: clamp(1.5rem, 4vw, 4rem);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    /* Tagline bar across top */
+    .hero-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-topbar-left {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #ffe170;
+      font-weight: 700;
+    }
+
+    .hero-topbar-right {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(207, 198, 175, 0.55);
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    /* Giant editorial headline — blend mode punches through 3D canvas */
+    .hero-title {
+      font-family: 'Epilogue', sans-serif;
+      font-size: clamp(4.5rem, 13vw, 13rem);
+      font-weight: 900;
+      line-height: 0.82;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #e2e2e2;
+      mix-blend-mode: difference;
+      align-self: center;
+      max-width: 55vw;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-title .gold-stroke {
+      color: transparent;
+      -webkit-text-stroke: 2px #ffe170;
+    }
+
+    /* Bottom bar — CTA row */
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-caption {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(207, 198, 175, 0.5);
+      line-height: 2;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      pointer-events: auto;
+    }
+
+    .hero-btn-primary {
+      background: #ffdd55;
+      color: #3a3000;
+      font-family: 'Epilogue', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      clip-path: polygon(0 0, 100% 0, 100% 72%, 88% 100%, 0 100%);
+      transition: transform 0.25s ease, background 0.25s ease;
+      box-shadow: 0 8px 40px -10px rgba(255, 221, 85, 0.4);
+    }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-4px);
+      background: #ffe170;
+    }
+
+    .hero-btn-ghost {
+      color: #ffe170;
+      font-family: 'Epilogue', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 225, 112, 0.35);
+      padding-bottom: 3px;
+      transition: border-color 0.25s ease;
+    }
+
+    .hero-btn-ghost:hover {
+      border-color: #ffe170;
+    }
+
+    /* 3D perspective viewport */
+    .hero-viewport {
+      perspective: 2200px;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* The 3D tilted canvas */
+    .hero-canvas {
+      position: relative;
+      width: min(820px, 88vw);
+      height: min(520px, 55.25vw);
+      transform-style: preserve-3d;
+      transform: rotateX(55deg) rotateZ(-25deg) scale(1);
+      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Layered images */
+    .hero-layer {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255, 225, 112, 0.07);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-layer-1 {
+      background-image: url('media/Drone-1.jpg');
+      filter: grayscale(0.35) contrast(1.15) brightness(0.5);
+    }
+
+    .hero-layer-2 {
+      background-image: url('media/House-6.jpg');
+      filter: grayscale(0.5) contrast(1.1) brightness(0.65);
+      opacity: 0.55;
+      mix-blend-mode: screen;
+    }
+
+    .hero-layer-3 {
+      background-image: url('media/Lounge-1.jpg');
+      filter: grayscale(0.7) contrast(1.2) brightness(0.8);
+      opacity: 0.3;
+      mix-blend-mode: overlay;
+    }
+
+    /* Topographic contour lines — gold tinted for Vanguard */
+    .hero-contours {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background-image: repeating-radial-gradient(circle at 50% 50%,
+          transparent 0,
+          transparent 44px,
+          rgba(255, 225, 112, 0.055) 45px,
+          transparent 46px);
+      transform: translateZ(105px);
+      pointer-events: none;
+    }
+
+    /* Gold edge glow on canvas */
+    .hero-canvas-glow {
+      position: absolute;
+      inset: -1px;
+      box-shadow:
+        0 0 0 1px rgba(255, 225, 112, 0.12),
+        0 0 60px -10px rgba(255, 225, 112, 0.1);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* ── Floating property card ───────────────────────── */
+    .hero-prop-card {
+      position: absolute;
+      bottom: -44px;
+      right: -48px;
+      width: 230px;
+      background: rgba(14, 14, 14, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 225, 112, 0.18);
+      transform: translateZ(130px);
+      overflow: hidden;
+      box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 225, 112, 0.08);
+    }
+
+    .hero-prop-card-img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.9);
+    }
+
+    .hero-prop-card-body {
+      padding: 0.85rem 1rem 1rem;
+    }
+
+    .hero-prop-card-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #ffe170;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .hero-prop-card-name {
+      font-family: 'Epilogue', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: #e2e2e2;
+      line-height: 1.1;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-prop-card-loc {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(207, 198, 175, 0.55);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-prop-card-divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255, 225, 112, 0.2), transparent);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-prop-card-stats {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hero-prop-stat-val {
+      font-family: 'Epilogue', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 900;
+      color: #ffe170;
+      display: block;
+    }
+
+    .hero-prop-stat-lbl {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(207, 198, 175, 0.45);
+    }
+
+    /* Scroll hint */
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      z-index: 25;
+      pointer-events: none;
+    }
+
+    .hero-scroll-hint span {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.55rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(207, 198, 175, 0.35);
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 52px;
+      background: linear-gradient(to bottom, #ffe170, transparent);
+      animation: hero-flow 2.2s infinite ease-in-out;
+      transform-origin: top;
+    }
+
+    @keyframes hero-flow {
+      0% {
+        transform: scaleY(0);
+        opacity: 0;
+      }
+
+      40% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scaleY(0);
+        opacity: 0;
+        transform-origin: bottom;
+      }
+    }
+
+    /* ── Bento Gallery ──────────────────────────────────── */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 240px;
+      gap: 6px;
+    }
+    @media (max-width: 768px) {
+      .bento-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+      .bento-grid .bento-item[style*="grid-column"] { grid-column: span 2 !important; }
+    }
+    .bento-item {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .bento-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .bento-item:hover img { transform: scale(1.07); }
+    .bento-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .bento-item:hover .bento-overlay { opacity: 1; }
+    .bento-label {
+      position: absolute; bottom: 0; left: 0;
+      padding: 0.875rem 1rem;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+    }
+    .bento-item:hover .bento-label { opacity: 1; transform: translateY(0); }
+    .bento-zoom-icon {
+      position: absolute; top: 0.75rem; right: 0.75rem;
+      width: 28px; height: 28px;
+      background: rgba(255,221,85,0.15);
+      border: 1px solid rgba(255,221,85,0.35);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .bento-item:hover .bento-zoom-icon { opacity: 1; }
+
+    /* ── Gallery Lightbox ───────────────────────────────── */
+    #gallery-lightbox {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.96);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    #gallery-lightbox.open { display: flex; }
+    #lightbox-img {
+      max-height: 68vh;
+      max-width: 88vw;
+      object-fit: contain;
+      transition: opacity 0.25s ease;
+    }
+    #lightbox-img.fading { opacity: 0; }
+    .lb-arrow {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 48px; height: 48px;
+      border: 1px solid rgba(255,225,112,0.3);
+      background: rgba(19,19,19,0.6);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .lb-arrow:hover { background: rgba(255,221,85,0.15); border-color: rgba(255,221,85,0.6); }
+    #lb-prev { left: 1.5rem; }
+    #lb-next { right: 1.5rem; }
+    #lb-thumbs {
+      position: absolute; bottom: 1.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; gap: 6px;
+      max-width: 90vw; overflow-x: auto;
+      padding: 4px;
+    }
+    #lb-thumbs::-webkit-scrollbar { display: none; }
+    .lb-thumb {
+      width: 64px; height: 48px; flex-shrink: 0;
+      object-fit: cover;
+      cursor: pointer;
+      opacity: 0.45;
+      border: 1px solid transparent;
+      transition: opacity 0.25s, border-color 0.25s;
+    }
+    .lb-thumb.active, .lb-thumb:hover { opacity: 1; border-color: #ffe170; }
+    #lb-count {
+      position: absolute; top: 1.5rem; left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.6rem; letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(207,198,175,0.5);
+    }
+    #lb-close {
+      position: absolute; top: 1.25rem; right: 1.5rem;
+      width: 40px; height: 40px;
+      border: 1px solid rgba(255,225,112,0.25);
+      background: rgba(19,19,19,0.5);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    #lb-close:hover { background: rgba(255,221,85,0.12); }
+
+    /* ── Testimonials Carousel ──────────────────────────── */
+    #testimonial-track {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .testimonial-slide {
+      min-width: 100%;
+      padding: 0 1rem;
+    }
+    @media (min-width: 768px) { .testimonial-slide { padding: 0 5rem; } }
+    .dot-btn {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(207,198,175,0.3);
+      border: none; cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      padding: 0;
+    }
+    .dot-btn.active { background: #ffe170; transform: scale(1.4); }
+
+    /* Entrance animation states */
+    .hero-canvas.hero-entrance {
+      opacity: 0;
+      transform: rotateX(90deg) rotateZ(0deg) scale(0.85);
+    }
+
+    .hero-canvas.hero-entrance-done {
+      opacity: 1;
+      transform: rotateX(55deg) rotateZ(-25deg) scale(1);
+      transition: all 2.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+
+  <!-- ══════════════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 glass-nav border-b border-[#cfc6af]/12 transition-all duration-300">
+    <div class="flex justify-between items-center w-full px-6 md:px-10 py-5">
+
+      <!-- Logo -->
+      <a href="#home"
+        class="text-xl md:text-2xl font-black tracking-tighter text-[#ffe170] font-headline uppercase select-none">
+        VANGUARD STUDIOS
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#portfolio"
+          class="nav-link font-headline tracking-tight uppercase font-bold text-sm text-[#cfc6af] hover:text-[#ffe170] transition-colors duration-300">Portfolio</a>
+        <a href="#services"
+          class="nav-link font-headline tracking-tight uppercase font-bold text-sm text-[#cfc6af] hover:text-[#ffe170] transition-colors duration-300">Services</a>
+        <a href="#pricing"
+          class="nav-link font-headline tracking-tight uppercase font-bold text-sm text-[#cfc6af] hover:text-[#ffe170] transition-colors duration-300">Pricing</a>
+        <a href="#about"
+          class="nav-link font-headline tracking-tight uppercase font-bold text-sm text-[#cfc6af] hover:text-[#ffe170] transition-colors duration-300">About</a>
+      </div>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-4">
+        <a href="#contact"
+          class="hidden sm:inline-flex bg-primary-container text-on-primary font-headline text-xs font-black uppercase tracking-widest px-6 py-3 rounded-sm hover:scale-95 transition-transform duration-200 cta-shadow">
+          Book Consultation
+        </a>
+        <!-- Hamburger -->
+        <button id="menu-btn" class="md:hidden flex flex-col gap-1.5 p-1" aria-label="Toggle menu">
+          <span class="hamburger-line block w-6 h-px bg-[#e2e2e2] transition-all duration-300"></span>
+          <span class="hamburger-line block w-6 h-px bg-[#e2e2e2] transition-all duration-300"></span>
+          <span class="hamburger-line block w-4 h-px bg-[#e2e2e2] transition-all duration-300"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="glass-nav border-t border-[#cfc6af]/10">
+      <div class="flex flex-col px-6 py-6 gap-6">
+        <a href="#portfolio"
+          class="font-headline tracking-tight uppercase font-bold text-[#cfc6af] hover:text-[#ffe170] transition-colors"
+          onclick="closeMobile()">Portfolio</a>
+        <a href="#services"
+          class="font-headline tracking-tight uppercase font-bold text-[#cfc6af] hover:text-[#ffe170] transition-colors"
+          onclick="closeMobile()">Services</a>
+        <a href="#pricing"
+          class="font-headline tracking-tight uppercase font-bold text-[#cfc6af] hover:text-[#ffe170] transition-colors"
+          onclick="closeMobile()">Pricing</a>
+        <a href="#about"
+          class="font-headline tracking-tight uppercase font-bold text-[#cfc6af] hover:text-[#ffe170] transition-colors"
+          onclick="closeMobile()">About</a>
+        <a href="#contact"
+          class="inline-flex justify-center bg-primary-container text-on-primary font-headline text-xs font-black uppercase tracking-widest px-6 py-3 rounded-sm"
+          onclick="closeMobile()">Book Consultation</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     HERO — Halide Topo (adapted)
+═══════════════════════════════════════════════════════════ -->
+  <section id="home"
+    style="position:relative;height:100vh;overflow:hidden;background:#0e0e0e;display:flex;align-items:center;justify-content:center;">
+
+    <!-- SVG grain filter definition -->
+    <svg style="position:absolute;width:0;height:0;" aria-hidden="true">
+      <filter id="hero-grain-filter" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch" />
+        <feColorMatrix type="saturate" values="0" />
+      </filter>
+    </svg>
+
+    <!-- Film grain overlay -->
+    <div class="hero-grain"></div>
+
+    <!-- ─ Interface overlay (title + nav metadata) ─────── -->
+    <div class="hero-interface">
+
+      <!-- Top meta bar -->
+      <div class="hero-topbar">
+        <span class="hero-topbar-left">Vanguard Studios</span>
+        <span class="hero-topbar-right">
+          29.8587° S — 31.0218° E<br />
+          PRODUCTION HOUSE / EST. 2025
+        </span>
+      </div>
+
+      <!-- Main title — blends through canvas -->
+      <h1 class="hero-title">
+        ELEVATE<br />
+        THE<br />
+        <span class="gold-stroke">STANDARD</span>
+      </h1>
+
+      <!-- Bottom row — caption + CTAs -->
+      <div class="hero-bottom">
+        <p class="hero-caption">
+          [ 2025 PRODUCTION ]<br />
+          CINEMATIC REAL ESTATE REELS · KWAZULU-NATAL
+        </p>
+        <div class="hero-ctas">
+          <a href="#portfolio" class="hero-btn-primary">View Showreel</a>
+          <a href="#pricing" class="hero-btn-ghost">Our Packages</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ─ 3D perspective viewport ─────────────────────── -->
+    <div class="hero-viewport">
+      <div class="hero-canvas hero-entrance" id="hero-canvas">
+
+        <!-- Layered real estate imagery -->
+        <div class="hero-layer hero-layer-1" id="hero-layer-0"></div>
+        <div class="hero-layer hero-layer-2" id="hero-layer-1"></div>
+        <div class="hero-layer hero-layer-3" id="hero-layer-2"></div>
+
+        <!-- Topographic contour overlay -->
+        <div class="hero-contours"></div>
+
+        <!-- Gold edge glow -->
+        <div class="hero-canvas-glow"></div>
+
+        <!-- ── Floating Property Card ──────────────────── -->
+        <div class="hero-prop-card" id="hero-card">
+          <img class="hero-prop-card-img" src="media/Pool-1.jpg" alt="KZN Listing — Vanguard Studios" />
+          <div class="hero-prop-card-body">
+            <span class="hero-prop-card-tag">Real Shoot · KZN Midlands</span>
+            <div class="hero-prop-card-name">Manor Estate</div>
+            <div class="hero-prop-card-loc">Howick, KwaZulu-Natal</div>
+            <div class="hero-prop-card-divider"></div>
+            <div class="hero-prop-card-stats">
+              <div>
+                <span class="hero-prop-stat-val">48h</span>
+                <span class="hero-prop-stat-lbl">Turnaround</span>
+              </div>
+              <div>
+                <span class="hero-prop-stat-val">6</span>
+                <span class="hero-prop-stat-lbl">Platforms</span>
+              </div>
+              <div>
+                <span class="hero-prop-stat-val">4K</span>
+                <span class="hero-prop-stat-lbl">Drone</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /hero-canvas -->
+    </div><!-- /hero-viewport -->
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     SERVICES BENTO — Section 2
+═══════════════════════════════════════════════════════════ -->
+  <section id="services" class="py-28 md:py-40 px-6 md:px-10 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section header -->
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-24 gap-8">
+        <div class="max-w-2xl reveal">
+          <span class="font-label text-primary-fixed tracking-[0.3em] uppercase text-xs mb-4 block">Our Expertise</span>
+          <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
+            Built to<br />Stop the Scroll
+          </h2>
+        </div>
+        <p class="reveal font-body text-on-surface-variant text-lg max-w-sm leading-relaxed">
+          Cinematic short-form content for KZN's top-performing agents — delivered across 6 platforms in 48 hours.
+        </p>
+      </div>
+
+      <!-- Equal 2×2 service tiles -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <!-- Listing Reels -->
+        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal">
+          <img
+            class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+            src="media/House-26.jpg" alt="Listing shoot — Vanguard Studios" />
+          <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/30 to-transparent"></div>
+          <div class="absolute bottom-0 p-8 md:p-10">
+            <span class="font-label text-primary-fixed tracking-widest uppercase text-[10px] mb-3 block">01 — Flagship Service</span>
+            <h3 class="font-headline text-2xl md:text-3xl font-bold uppercase mb-4">Listing Reels</h3>
+            <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">4–8 branded cinematic reels per listing — interior, exterior, and aerial — cut for the scroll with a hook in the first two seconds.</p>
+            <span class="material-symbols-outlined text-primary-fixed text-3xl">movie_filter</span>
+          </div>
+        </div>
+
+        <!-- 4K Drone -->
+        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal">
+          <img
+            class="absolute inset-0 w-full h-full object-cover opacity-55 group-hover:scale-105 transition-transform duration-700"
+            src="media/Drone-6.jpg" alt="Aerial drone — Vanguard Studios" />
+          <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent"></div>
+          <div class="absolute bottom-0 p-8 md:p-10">
+            <span class="font-label text-primary-fixed tracking-widest uppercase text-[10px] mb-3 block">02</span>
+            <h3 class="font-headline text-2xl md:text-3xl font-bold uppercase mb-4">4K Drone<br />Coverage</h3>
+            <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">DJI Mini 3 Pro aerial footage capturing property scale, estate surroundings, and KZN landscapes — every shoot includes drone as standard.</p>
+            <span class="material-symbols-outlined text-primary-fixed text-3xl">flight_takeoff</span>
+          </div>
+        </div>
+
+        <!-- Agent Brand Reels -->
+        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal">
+          <img
+            class="absolute inset-0 w-full h-full object-cover opacity-55 group-hover:scale-105 transition-transform duration-700"
+            src="media/Padel-10.jpg" alt="Lifestyle shoot — Vanguard Studios" />
+          <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+          <div class="absolute bottom-0 p-8 md:p-10">
+            <span class="font-label text-primary-fixed tracking-widest uppercase text-[10px] mb-3 block">03</span>
+            <h3 class="font-headline text-2xl font-bold uppercase mb-4">Agent Brand<br />Reels</h3>
+            <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Personal authority content that makes sellers know your name before they call. Profile reels, intro films, and area-domination content branded to your identity.</p>
+            <span class="material-symbols-outlined text-primary-fixed text-3xl">record_voice_over</span>
+          </div>
+        </div>
+
+        <!-- Multi-Platform Delivery -->
+        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal">
+          <img
+            class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
+            src="media/Kitchen-1.jpg" alt="Interior shoot — Vanguard Studios" />
+          <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent"></div>
+          <div class="absolute bottom-0 p-8 md:p-10">
+            <span class="font-label text-primary-fixed tracking-widest uppercase text-[10px] mb-3 block">04</span>
+            <h3 class="font-headline text-2xl md:text-3xl font-bold uppercase mb-4">Multi-Platform<br />Delivery</h3>
+            <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Every reel delivered formatted for Instagram, TikTok, Facebook Reels, YouTube Shorts, and LinkedIn — with captions, hashtags, and posting copy. You just hit share.</p>
+            <span class="material-symbols-outlined text-primary-fixed text-3xl">share_reviews</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sub-CTA -->
+      <div class="mt-16 flex flex-wrap gap-6 items-center reveal">
+        <a href="#pricing"
+          class="bg-primary-container text-on-primary font-headline text-sm font-black uppercase tracking-widest px-10 py-4 rounded-sm hover:scale-95 transition-transform cta-shadow">
+          View Investment Packages
+        </a>
+        <a href="#portfolio"
+          class="text-primary-fixed font-headline text-sm font-black uppercase tracking-widest border-b border-primary-fixed/40 hover:border-primary-fixed transition-all py-2">
+          See Our Work
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     PORTFOLIO — Section 3
+═══════════════════════════════════════════════════════════ -->
+  <section id="portfolio" class="py-28 md:py-40 bg-surface">
+
+    <!-- Header -->
+    <div class="px-6 md:px-10 mb-14">
+      <div class="reveal">
+        <span class="font-label text-primary-fixed tracking-[0.35em] uppercase text-xs mb-4 block">Archival Work</span>
+        <h2 class="font-headline text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none text-glow">
+          Visual<br /><span class="text-primary-fixed">Authority</span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="px-6 md:px-10 mb-8 reveal">
+      <div class="flex flex-wrap gap-8 border-b border-outline-variant/15 pb-5">
+        <button
+          class="filter-btn active font-label text-xs uppercase tracking-[0.2em] text-primary-fixed border-b border-primary-fixed pb-2"
+          data-filter="drone">Drone</button>
+        <button
+          class="filter-btn font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors pb-2"
+          data-filter="cinematic">Cinematic Tours</button>
+        <button
+          class="filter-btn font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant hover:text-on-surface transition-colors pb-2"
+          data-filter="commercial">Commercial</button>
+      </div>
+    </div>
+
+    <!-- Bento gallery -->
+    <div id="portfolio-grid" class="px-6 md:px-10 reveal">
+      <div class="bento-grid">
+
+        <!-- ── DRONE ──────────────────────────────────── -->
+        <div class="bento-item" data-category="drone" data-src="media/Drone-1.jpg" data-label="KZN · Aerial" style="grid-column: span 2">
+          <img src="media/Drone-1.jpg" alt="Aerial · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Aerial</p></div>
+        </div>
+
+        <div class="bento-item" data-category="drone" data-src="media/Drone-3.jpg" data-label="KZN · Aerial">
+          <img src="media/Drone-3.jpg" alt="Aerial · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Aerial</p></div>
+        </div>
+
+        <div class="bento-item" data-category="drone" data-src="media/Drone-3b.jpg" data-label="KZN · Aerial">
+          <img src="media/Drone-3b.jpg" alt="Aerial · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Aerial</p></div>
+        </div>
+
+        <div class="bento-item" data-category="drone" data-src="media/Drone-5.jpg" data-label="KZN · Aerial">
+          <img src="media/Drone-5.jpg" alt="Aerial · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Aerial</p></div>
+        </div>
+
+        <div class="bento-item" data-category="drone" data-src="media/Drone-6.jpg" data-label="KZN · Aerial" style="grid-column: span 3">
+          <img src="media/Drone-6.jpg" alt="Aerial · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Aerial</p></div>
+        </div>
+
+        <!-- ── CINEMATIC TOURS ────────────────────────── -->
+        <div class="bento-item" data-category="cinematic" data-src="media/House-26.jpg" data-label="KZN · Interior" style="grid-column: span 2; display:none">
+          <img src="media/House-26.jpg" alt="Interior · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Interior</p></div>
+        </div>
+
+        <div class="bento-item" data-category="cinematic" data-src="media/House-3.jpg" data-label="KZN · Interior" style="display:none">
+          <img src="media/House-3.jpg" alt="Interior · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Interior</p></div>
+        </div>
+
+        <div class="bento-item" data-category="cinematic" data-src="media/House-6.jpg" data-label="KZN · Interior" style="display:none">
+          <img src="media/House-6.jpg" alt="Interior · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Interior</p></div>
+        </div>
+
+        <div class="bento-item" data-category="cinematic" data-src="media/House-9.jpg" data-label="KZN · Interior" style="display:none">
+          <img src="media/House-9.jpg" alt="Interior · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Interior</p></div>
+        </div>
+
+        <div class="bento-item" data-category="cinematic" data-src="media/Lounge-1.jpg" data-label="KZN · Lounge" style="display:none">
+          <img src="media/Lounge-1.jpg" alt="Lounge · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Lounge</p></div>
+        </div>
+
+        <div class="bento-item" data-category="cinematic" data-src="media/Lounge-2.jpg" data-label="KZN · Lounge" style="grid-column: span 2; display:none">
+          <img src="media/Lounge-2.jpg" alt="Lounge · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Lounge</p></div>
+        </div>
+
+        <div class="bento-item" data-category="cinematic" data-src="media/Pool-1.jpg" data-label="KZN · Exterior" style="grid-column: span 2; display:none">
+          <img src="media/Pool-1.jpg" alt="Exterior · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Exterior</p></div>
+        </div>
+
+        <div class="bento-item" data-category="cinematic" data-src="media/Cottage-8.jpg" data-label="KZN · Estate" style="display:none">
+          <img src="media/Cottage-8.jpg" alt="Estate · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Estate</p></div>
+        </div>
+
+        <div class="bento-item" data-category="cinematic" data-src="media/Cottage-14.jpg" data-label="KZN · Estate" style="display:none">
+          <img src="media/Cottage-14.jpg" alt="Estate · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Estate</p></div>
+        </div>
+
+        <!-- ── COMMERCIAL ─────────────────────────────── -->
+        <div class="bento-item" data-category="commercial" data-src="media/Padel-10.jpg" data-label="KZN · Amenities" style="grid-column: span 2; display:none">
+          <img src="media/Padel-10.jpg" alt="Amenities · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Amenities</p></div>
+        </div>
+
+        <div class="bento-item" data-category="commercial" data-src="media/Padel-14.jpg" data-label="KZN · Amenities" style="display:none">
+          <img src="media/Padel-14.jpg" alt="Amenities · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Amenities</p></div>
+        </div>
+
+        <div class="bento-item" data-category="commercial" data-src="media/Pool-table.jpg" data-label="KZN · Entertainment" style="display:none">
+          <img src="media/Pool-table.jpg" alt="Entertainment · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Entertainment</p></div>
+        </div>
+
+        <div class="bento-item" data-category="commercial" data-src="media/Kitchen-1.jpg" data-label="KZN · Kitchen" style="display:none">
+          <img src="media/Kitchen-1.jpg" alt="Kitchen · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Kitchen</p></div>
+        </div>
+
+        <div class="bento-item" data-category="commercial" data-src="media/Kitchen-2.jpg" data-label="KZN · Kitchen" style="grid-column: span 2; display:none">
+          <img src="media/Kitchen-2.jpg" alt="Kitchen · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Kitchen</p></div>
+        </div>
+
+        <div class="bento-item" data-category="commercial" data-src="media/Closeup-2.jpg" data-label="KZN · Detail" style="display:none">
+          <img src="media/Closeup-2.jpg" alt="Detail · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Detail</p></div>
+        </div>
+
+        <div class="bento-item" data-category="commercial" data-src="media/Closeup-4.jpg" data-label="KZN · Detail" style="display:none">
+          <img src="media/Closeup-4.jpg" alt="Detail · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Detail</p></div>
+        </div>
+
+        <div class="bento-item" data-category="commercial" data-src="media/Closeup-5.jpg" data-label="KZN · Detail" style="display:none">
+          <img src="media/Closeup-5.jpg" alt="Detail · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Detail</p></div>
+        </div>
+
+        <div class="bento-item" data-category="commercial" data-src="media/Cottage-2.jpg" data-label="KZN · Estate" style="grid-column: span 2; display:none">
+          <img src="media/Cottage-2.jpg" alt="Estate · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Estate</p></div>
+        </div>
+
+        <div class="bento-item" data-category="commercial" data-src="media/Cottage-9.jpg" data-label="KZN · Estate" style="display:none">
+          <img src="media/Cottage-9.jpg" alt="Estate · KZN" />
+          <div class="bento-overlay"></div>
+          <div class="bento-zoom-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          <div class="bento-label"><p class="font-label text-[9px] tracking-widest uppercase text-white/70">KZN · Estate</p></div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Gallery Lightbox ───────────────────────────────── -->
+  <div id="gallery-lightbox" role="dialog" aria-modal="true">
+    <div id="lb-count">1 / 5</div>
+    <button id="lb-close" aria-label="Close">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lb-arrow" id="lb-prev" aria-label="Previous">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" />
+    <button class="lb-arrow" id="lb-next" aria-label="Next">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffe170" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div id="lb-thumbs"></div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     RESULTS & STATS — Section 4
+═══════════════════════════════════════════════════════════ -->
+  <section id="results" class="py-28 md:py-40 bg-surface-container-low relative overflow-hidden">
+
+    <!-- Decorative triangle -->
+    <div class="absolute top-0 right-0 w-1/3 h-full opacity-[0.07] pointer-events-none">
+      <svg class="w-full h-full text-primary-fixed fill-current" viewBox="0 0 100 100">
+        <path d="M0,100 L100,0 L100,100 Z" />
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+
+      <!-- Stats block -->
+      <div class="reveal">
+        <span class="font-label text-primary-fixed tracking-[0.3em] uppercase text-xs mb-5 block">Proven
+          Performance</span>
+        <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter mb-14 leading-none">
+          The Vanguard<br />Advantage
+        </h2>
+        <div class="grid grid-cols-2 gap-10 border-l border-outline-variant/25 pl-10">
+          <div>
+            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num">48h</div>
+            <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">Reel Turnaround</div>
+          </div>
+          <div>
+            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num">6</div>
+            <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">Platforms Per Shoot
+            </div>
+          </div>
+          <div>
+            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num">9</div>
+            <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">Days to Sold</div>
+          </div>
+          <div>
+            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num">10+</div>
+            <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">KZN Areas Covered
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="relative reveal">
+        <div class="bg-surface p-10 md:p-12 relative z-10">
+          <span class="material-symbols-outlined text-primary-fixed text-5xl mb-7 block"
+            style="font-variation-settings: 'FILL' 1;">format_quote</span>
+          <p class="font-body text-xl md:text-2xl italic leading-relaxed mb-10 text-on-surface">
+            "The drone footage alone was worth it. But the editing, the branding, the hook — everything done. I just hit
+            post. Listing sold in 9 days."
+          </p>
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 overflow-hidden bg-surface-container-high flex-shrink-0 flex items-center justify-center">
+              <span class="font-headline text-lg font-black text-primary-fixed">JV</span>
+            </div>
+            <div>
+              <div class="font-headline text-sm font-bold uppercase tracking-tight">Jason V.</div>
+              <div class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase mt-0.5">Area
+                Domination · Ballito</div>
+            </div>
+          </div>
+        </div>
+        <!-- Ghost border accent -->
+        <div class="absolute -top-3 -left-3 w-full h-full border border-primary-fixed/20 -z-10"></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     TESTIMONIALS STRIP
+═══════════════════════════════════════════════════════════ -->
+  <section class="py-24 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="mb-12 reveal">
+        <span class="font-label text-primary-fixed tracking-[0.3em] uppercase text-xs block mb-3">Industry Voice</span>
+        <h2 class="font-headline text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">Why Social
+          Media<br />Wins Real Estate.</h2>
+      </div>
+      <!-- Carousel viewport -->
+      <div class="overflow-hidden reveal" id="testimonial-viewport">
+        <div id="testimonial-track">
+
+          <div class="testimonial-slide">
+            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+              <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Social media is the greatest gift ever given to the real estate industry. I sell roughly one home per week from referrals generated through social media alone."</p>
+              <div>
+                <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Ryan Serhant</div>
+                <div class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase mt-1">Founder, SERHANT. · Netflix's Owning Manhattan</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+              <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Committing fully to social media — and not treating it as a hobby or casual add-on — is what made it an invaluable part of our business."</p>
+              <div>
+                <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Alexander Chingas</div>
+                <div class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase mt-1">Bross Chingas Bross Team · Coldwell Banker Realty</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+              <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Social media keeps me top of mind, helps me share trends and lifestyle insights, and positions me as a go-to resource for market and design trends."</p>
+              <div>
+                <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Nikki Beauchamp</div>
+                <div class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase mt-1">Senior Global Real Estate Advisor · Sotheby's International Realty</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+              <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Social media is a communication tool first, not an advertising platform — a way to stay genuinely connected to friends, family, and clients through every stage of their lives."</p>
+              <div>
+                <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Mike Fabbri</div>
+                <div class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase mt-1">Real Estate Agent · The Agency</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+              <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Social media is no longer just a marketing tool — it's a direct line to the client, enabling frictionless communication across state lines."</p>
+              <div>
+                <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Chestler Jacobs Team</div>
+                <div class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase mt-1">Douglas Elliman · New York &amp; Florida</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+              <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Social media branding is the foundation of longevity in real estate. Be intentional from day one so your brand becomes portable across companies and markets."</p>
+              <div>
+                <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Rebecca Hidalgo</div>
+                <div class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase mt-1">CEO &amp; Designated Broker · Integrity All Stars Realty</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex justify-between items-center mt-10 reveal">
+        <button id="t-prev" class="flex items-center gap-2 font-label text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-primary-fixed transition-colors" aria-label="Previous testimonial">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Prev
+        </button>
+        <div id="t-dots" class="flex gap-3"></div>
+        <button id="t-next" class="flex items-center gap-2 font-label text-[10px] uppercase tracking-widest text-on-surface-variant hover:text-primary-fixed transition-colors" aria-label="Next testimonial">
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     PRICING — Section 5
+═══════════════════════════════════════════════════════════ -->
+  <section id="pricing" class="py-28 md:py-40 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+      <!-- Header -->
+      <div class="mb-16 md:mb-24 reveal">
+        <span class="font-label text-primary-fixed tracking-[0.3em] uppercase text-xs mb-5 block">Investment
+          Packages</span>
+        <h2 class="font-headline text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none">
+          The Vanguard<br />Pricing.
+        </h2>
+      </div>
+
+      <!-- Pricing cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+
+        <!-- Listing Launch -->
+        <div class="bg-surface-container p-8 md:p-10 flex flex-col">
+          <div class="mb-8">
+            <span
+              class="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant block mb-3">Once-off</span>
+            <h3 class="font-headline text-2xl font-bold uppercase mb-2">Listing Launch</h3>
+            <p class="font-label text-[10px] tracking-widest uppercase text-primary-fixed">One listing, one shoot.
+              Everything you need to go live.</p>
+          </div>
+          <div class="font-headline text-4xl font-black mb-2">R5,500</div>
+          <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-8">Once-off</div>
+          <div class="space-y-4 mb-10 flex-1">
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">Interior + exterior photography</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">3 social media reels</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">Delivered in 5 business days</span>
+            </div>
+          </div>
+          <a href="#contact"
+            class="w-full py-4 text-[10px] font-label tracking-widest uppercase border border-outline-variant hover:border-on-surface-variant transition-colors duration-200 text-center block">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Agent Growth — Most Popular -->
+        <div class="bg-surface-container pricing-elite p-8 md:p-10 flex flex-col relative">
+          <div
+            class="absolute top-0 right-0 bg-primary-container text-on-primary font-label text-[9px] tracking-widest uppercase px-4 py-2">
+            Most Popular
+          </div>
+          <div class="mb-8">
+            <span
+              class="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant block mb-3">Monthly</span>
+            <h3 class="font-headline text-2xl font-bold uppercase mb-2 text-primary-fixed">Agent Growth</h3>
+            <p class="font-label text-[10px] tracking-widest uppercase text-primary-fixed">Two full listings per month
+              with ground and aerial coverage.</p>
+          </div>
+          <div class="font-headline text-4xl font-black text-primary-fixed mb-2">R12,000</div>
+          <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-8">Per month</div>
+          <div class="space-y-4 mb-10 flex-1">
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">Interior + exterior photography × 2
+                listings</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">Aerial stills (drone) × 2 listings</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">4 reels per listing (8 total)</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">Priority scheduling</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">Delivered in 4 business days</span>
+            </div>
+          </div>
+          <a href="#contact"
+            class="w-full py-4 text-[10px] font-label tracking-widest uppercase bg-primary-container text-on-primary font-bold hover:scale-95 transition-transform duration-200 cta-shadow text-center block">
+            Inquire Now
+          </a>
+        </div>
+
+        <!-- Area Domination -->
+        <div class="bg-surface-container p-8 md:p-10 flex flex-col">
+          <div class="mb-8">
+            <span
+              class="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant block mb-3">Premium</span>
+            <h3 class="font-headline text-2xl font-bold uppercase mb-2">Area Domination</h3>
+            <p class="font-label text-[10px] tracking-widest uppercase text-primary-fixed">Built for top-performing
+              agents who want to own their market online.</p>
+          </div>
+          <div class="font-headline text-4xl font-black mb-2">R20,000</div>
+          <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-8">Per month</div>
+          <div class="space-y-4 mb-10 flex-1">
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">Interior + exterior photography × 4
+                listings</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">Aerial stills (drone) × 4 listings</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">5 reels per listing (20 total)</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">2 personal brand reels per month</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
+              <span class="font-body text-sm text-on-surface-variant">Same-week delivery</span>
+            </div>
+          </div>
+          <a href="#contact"
+            class="w-full py-4 text-[10px] font-label tracking-widest uppercase border border-outline-variant hover:border-on-surface-variant transition-colors duration-200 text-center block">
+            Inquire Now
+          </a>
+        </div>
+
+      </div>
+
+      <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mt-8 reveal">
+        * All packages include a discovery call before signing. Photography is included in all packages.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     ABOUT — Section 6
+═══════════════════════════════════════════════════════════ -->
+  <section id="about" class="py-28 md:py-40 bg-surface relative overflow-hidden">
+
+    <!-- Background accent -->
+    <div
+      class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,225,112,0.04)_0%,_transparent_60%)] pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+
+        <!-- Image side -->
+        <div class="md:col-span-6 reveal">
+          <div class="relative">
+            <div class="aspect-[4/5] w-full overflow-hidden bg-surface-container">
+              <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                src="media/Founder.png" alt="Rishay — Founder, Vanguard Studios" />
+            </div>
+            <!-- Accent tag -->
+            <div class="absolute -bottom-5 -right-5 bg-surface-container-low px-8 py-5 border-l-2 border-primary-fixed">
+              <div class="font-headline text-3xl font-black text-primary-fixed">48h</div>
+              <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mt-1">
+                Guaranteed<br />Turnaround</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text side -->
+        <div class="md:col-span-6 reveal">
+          <span class="font-label text-primary-fixed tracking-[0.3em] uppercase text-xs mb-5 block">The Founder</span>
+          <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-10">
+            Rishay —<br />Founder &amp;<br /><span class="text-primary-fixed">Director.</span>
+          </h2>
+          <div class="space-y-6 text-on-surface-variant leading-relaxed border-l border-outline-variant/30 pl-8">
+            <p>I'm a KZN-based videographer who spent years watching incredible KZN properties sell with mediocre
+              content. I started Vanguard Studios to fix that. I bring a cinematic eye and a deep understanding of what
+              KZN buyers respond to.</p>
+            <p>Every reel I produce is intentional — built to stop the scroll, not just look good while it passes. Shot
+              on Canon R50, DJI Mini 3 Pro drone, and DJI RS3 Mini gimbal.</p>
+            <p class="text-on-surface font-medium">Based in KZN. Shooting province-wide.</p>
+          </div>
+          <div class="mt-8 grid grid-cols-2 gap-4 border-l border-outline-variant/30 pl-8">
+            <div>
+              <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-1">Camera</div>
+              <div class="font-body text-sm">Canon R50 · 10–22mm &amp; 24–70mm</div>
+            </div>
+            <div>
+              <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-1">Aerial</div>
+              <div class="font-body text-sm">DJI Mini 3 Pro</div>
+            </div>
+            <div>
+              <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-1">Stabilisation
+              </div>
+              <div class="font-body text-sm">DJI RS3 Mini Gimbal</div>
+            </div>
+            <div>
+              <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-1">Post</div>
+              <div class="font-body text-sm">32GB Edit Suite</div>
+            </div>
+          </div>
+          <div class="mt-12 flex flex-wrap gap-6">
+            <a href="#contact"
+              class="bg-primary-container text-on-primary font-headline text-sm font-black uppercase tracking-widest px-10 py-4 rounded-sm hover:scale-95 transition-transform cta-shadow">
+              Work With Us
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     CONTACT / CONSULTATION — Section 7
+═══════════════════════════════════════════════════════════ -->
+  <section id="contact" class="py-28 md:py-40 bg-surface-container-lowest">
+    <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+      <!-- Hero header -->
+      <header class="mb-20 grid md:grid-cols-12 gap-8 reveal">
+        <div class="md:col-span-8">
+          <span class="font-label text-primary-fixed tracking-[0.2em] uppercase text-xs mb-5 block">Book Your
+            Shoot</span>
+          <h1
+            class="font-headline text-6xl md:text-8xl font-black tracking-tighter uppercase leading-[0.85] text-white">
+            LET'S STOP <br /> THE <span class="text-primary-fixed">SCROLL.</span>
+          </h1>
+        </div>
+        <div class="md:col-span-4 flex items-end">
+          <p class="text-on-surface-variant text-lg leading-relaxed border-l border-outline-variant pl-6">
+            Based in KZN, shooting province-wide. I'll be in touch within 24 hours to align on your brand, areas, and
+            goals.
+          </p>
+        </div>
+      </header>
+
+      <!-- Two-column layout -->
+      <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
+
+        <!-- Form -->
+        <div class="reveal">
+          <div class="space-y-3 mb-12">
+            <h2 class="font-headline text-3xl font-bold uppercase tracking-tight text-white">Inquiry Form</h2>
+            <p class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Confidential &amp; Direct
+            </p>
+          </div>
+          <form class="space-y-10" id="contact-form" onsubmit="handleSubmit(event)">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+              <div>
+                <label class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-3 block">Full
+                  Name</label>
+                <input class="input-field" placeholder="Your name" type="text" name="name" required />
+              </div>
+              <div>
+                <label
+                  class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-3 block">Direct
+                  Email</label>
+                <input class="input-field" placeholder="you@example.com" type="email" name="email" required />
+              </div>
+            </div>
+            <div>
+              <label
+                class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-3 block">WhatsApp
+                Number</label>
+              <input class="input-field" placeholder="+27 (000) 000-0000" type="tel" name="phone" />
+            </div>
+            <div>
+              <label class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-3 block">Package
+                Interest</label>
+              <select class="input-field appearance-none cursor-pointer" name="package" style="background-image: url(\"
+                data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'
+                fill='none' stroke='%23ffe170' stroke-width='2' %3E%3Cpolyline points='6 9 12 15 18 9'
+                %3E%3C/polyline%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: right 0 center;">
+                <option style="background:#131313">Listing Launch — R5,500 once-off</option>
+                <option style="background:#131313">Agent Growth — R12,000/month</option>
+                <option style="background:#131313">Area Domination — R20,000/month</option>
+                <option style="background:#131313">Not sure yet — let's chat</option>
+              </select>
+            </div>
+            <div>
+              <label class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-3 block">Your
+                Area &amp; Goals</label>
+              <textarea class="input-field resize-none" name="message"
+                placeholder="Which suburb are you based in? What are you looking for?" rows="4"></textarea>
+            </div>
+            <div class="pt-4">
+              <button type="submit"
+                class="group flex items-center gap-4 bg-primary-container text-on-primary px-10 py-5 font-headline font-bold uppercase tracking-tighter hover:scale-95 transition-transform duration-200 cta-shadow">
+                Initiate Protocol
+                <span
+                  class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </button>
+            </div>
+            <!-- Success message -->
+            <div id="form-success" class="hidden">
+              <p class="font-label text-[11px] uppercase tracking-widest text-primary-fixed">
+                <span class="material-symbols-outlined text-sm mr-2"
+                  style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Your inquiry has been received. We'll be in touch within 24 hours.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Info side -->
+        <div class="space-y-16 reveal">
+
+          <!-- Studio info -->
+          <div class="space-y-8">
+            <p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary-fixed">Based In KZN</p>
+            <p class="font-body text-on-surface-variant leading-relaxed">Shooting province-wide — from the Midlands to
+              the coast. One shoot includes interior, exterior, and aerial. Everything branded to you and delivered
+              ready to post.</p>
+            <p
+              class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant/60 italic border-l border-outline-variant/30 pl-5">
+              Same suburb. Different agents. Different content.<br />The one with the best reel gets the call.</p>
+          </div>
+
+          <!-- Direct channels -->
+          <div class="pt-10 border-t border-outline-variant/15">
+            <p class="font-label text-[10px] uppercase tracking-[0.3em] text-on-surface-variant mb-8">Direct Channels
+            </p>
+            <div class="flex flex-col">
+              <a href="https://wa.me/message/MKKMXUJB2KGXN1" target="_blank" rel="noopener"
+                class="group flex justify-between items-center py-5 border-b border-outline-variant/10 hover:border-primary-fixed transition-colors duration-300">
+                <span
+                  class="font-label text-sm tracking-widest uppercase text-on-surface group-hover:text-primary-fixed transition-colors">WhatsApp
+                  Rishay</span>
+                <span
+                  class="material-symbols-outlined text-primary-fixed text-base opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+              </a>
+              <a href="https://www.instagram.com/vanguard_studio_properties?igsh=aTBoeTVmcm1ndmMx" target="_blank" rel="noopener"
+                class="group flex justify-between items-center py-5 border-b border-outline-variant/10 hover:border-primary-fixed transition-colors duration-300">
+                <span
+                  class="font-label text-sm tracking-widest uppercase text-on-surface group-hover:text-primary-fixed transition-colors">Instagram</span>
+                <span
+                  class="material-symbols-outlined text-primary-fixed text-base opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+              </a>
+              <a href="mailto:rishay.seur.rs@gmail.com"
+                class="group flex justify-between items-center py-5 border-b border-outline-variant/10 hover:border-primary-fixed transition-colors duration-300">
+                <span
+                  class="font-label text-sm tracking-widest uppercase text-on-surface group-hover:text-primary-fixed transition-colors">rishay.seur.rs@gmail.com</span>
+                <span
+                  class="material-symbols-outlined text-primary-fixed text-base opacity-0 group-hover:opacity-100 transition-opacity">north_east</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     FINAL CTA BANNER
+═══════════════════════════════════════════════════════════ -->
+  <section class="py-32 md:py-48 bg-surface text-center px-6 relative overflow-hidden">
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,225,112,0.06)_0%,_transparent_65%)] pointer-events-none">
+    </div>
+    <div class="max-w-4xl mx-auto relative z-10 reveal">
+      <h2 class="font-headline text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-none">
+        Own Your<br />Area.
+      </h2>
+      <p class="font-body text-lg md:text-xl text-on-surface-variant mb-14 max-w-xl mx-auto leading-relaxed">
+        Cinematic listing reels delivered in 48 hours — branded to you, formatted for every platform, ready to post.
+      </p>
+      <div class="inline-block group relative">
+        <a href="#contact"
+          class="block bg-primary-container text-on-primary font-headline text-base md:text-lg font-black uppercase tracking-widest px-12 py-6 relative z-10 transition-transform group-hover:-translate-y-0.5 group-hover:-translate-x-0.5 duration-200 cta-shadow">
+          Book Your Shoot
+        </a>
+        <div
+          class="absolute inset-0 bg-primary-fixed border border-primary-fixed transition-transform group-hover:translate-y-0.5 group-hover:translate-x-0.5 duration-200">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
+  <footer class="bg-[#0e0e0e] w-full py-14 px-6 md:px-10 border-t border-[#cfc6af]/10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+
+      <!-- Logo -->
+      <a href="#home" class="text-xl font-bold text-[#ffe170] font-headline uppercase tracking-tighter select-none">
+        VANGUARD STUDIOS
+      </a>
+
+      <!-- Nav links -->
+      <div class="flex flex-wrap justify-center gap-6 md:gap-10">
+        <a href="#portfolio"
+          class="font-label text-[10px] tracking-[0.15em] uppercase text-[#cfc6af] hover:text-white transition-colors opacity-80 hover:opacity-100">Portfolio</a>
+        <a href="#services"
+          class="font-label text-[10px] tracking-[0.15em] uppercase text-[#cfc6af] hover:text-white transition-colors opacity-80 hover:opacity-100">Services</a>
+        <a href="#pricing"
+          class="font-label text-[10px] tracking-[0.15em] uppercase text-[#cfc6af] hover:text-white transition-colors opacity-80 hover:opacity-100">Pricing</a>
+        <a href="#about"
+          class="font-label text-[10px] tracking-[0.15em] uppercase text-[#cfc6af] hover:text-white transition-colors opacity-80 hover:opacity-100">About</a>
+        <a href="#contact"
+          class="font-label text-[10px] tracking-[0.15em] uppercase text-[#cfc6af] hover:text-white transition-colors opacity-80 hover:opacity-100">Contact</a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="font-label text-[10px] tracking-[0.15em] uppercase text-[#cfc6af] opacity-50 text-center">
+        © 2025 Vanguard Studios · KwaZulu-Natal<br class="sm:hidden" /> All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════════ -->
+  <script>
+      // ══════════════════════════════════════════════════════════
+      // HALIDE TOPO HERO — 3D parallax + entrance animation
+      // ══════════════════════════════════════════════════════════
+      (function () {
+        const canvas = document.getElementById('hero-canvas');
+        const card = document.getElementById('hero-card');
+        const layers = [
+          document.getElementById('hero-layer-0'),
+          document.getElementById('hero-layer-1'),
+          document.getElementById('hero-layer-2'),
+        ];
+
+        // ── Entrance animation ──────────────────────────────
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            canvas.classList.remove('hero-entrance');
+            canvas.classList.add('hero-entrance-done');
+            // Fade in card slightly after canvas settles
+            if (card) {
+              card.style.opacity = '0';
+              card.style.transition = 'opacity 1s ease 1.6s';
+              setTimeout(() => { card.style.opacity = '1'; }, 60);
+            }
+          }, 250);
+        });
+
+        // ── Mouse parallax ──────────────────────────────────
+        let ticking = false;
+        window.addEventListener('mousemove', (e) => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            const cx = window.innerWidth / 2;
+            const cy = window.innerHeight / 2;
+            const dx = (cx - e.clientX) / 28;
+            const dy = (cy - e.clientY) / 28;
+
+            // Tilt the whole canvas
+            canvas.style.transform = `rotateX(${55 + dy * 0.5}deg) rotateZ(${-25 + dx * 0.5}deg) scale(1)`;
+            canvas.style.transition = 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
+
+            // Move each layer at a different depth
+            layers.forEach((layer, i) => {
+              if (!layer) return;
+              const depth = (i + 1) * 14;
+              const mx = dx * (i + 1) * 0.22;
+              const my = dy * (i + 1) * 0.22;
+              layer.style.transform = `translateZ(${depth}px) translate(${mx}px, ${my}px)`;
+              layer.style.transition = 'transform 0.5s ease';
+            });
+
+            // Card floats slightly on parallax
+            if (card) {
+              const cx2 = dx * 0.6;
+              const cy2 = dy * 0.6;
+              card.style.transform = `translateZ(130px) translate(${cx2}px, ${cy2}px)`;
+              card.style.transition = 'transform 0.6s ease';
+            }
+
+            ticking = false;
+          });
+        });
+
+        // Reset to default on mouse leave
+        window.addEventListener('mouseleave', () => {
+          canvas.style.transform = 'rotateX(55deg) rotateZ(-25deg) scale(1)';
+          canvas.style.transition = 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+          layers.forEach((l, i) => {
+            if (l) { l.style.transform = `translateZ(${(i + 1) * 14}px)`; l.style.transition = 'transform 1s ease'; }
+          });
+          if (card) { card.style.transform = 'translateZ(130px)'; }
+        });
+      })();
+
+    // ─── Mobile menu ──────────────────────────────────────────
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerLines = document.querySelectorAll('.hamburger-line');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburgerLines[0].style.transform = isOpen ? 'translateY(6px) rotate(45deg)' : '';
+      hamburgerLines[1].style.opacity = isOpen ? '0' : '1';
+      hamburgerLines[2].style.transform = isOpen ? 'translateY(-6px) rotate(-45deg)' : '';
+      hamburgerLines[2].style.width = isOpen ? '24px' : '';
+    });
+
+    function closeMobile() {
+      mobileMenu.classList.remove('open');
+      hamburgerLines.forEach(l => { l.style.transform = ''; l.style.opacity = '1'; });
+      hamburgerLines[2].style.width = '';
+    }
+
+    // ─── Active nav on scroll ─────────────────────────────────
+    const sections = document.querySelectorAll('section[id], nav[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            const active = link.getAttribute('href') === '#' + entry.target.id;
+            link.classList.toggle('text-[#ffe170]', active);
+            link.classList.toggle('border-b', active);
+            link.classList.toggle('border-[#ffe170]', active);
+            link.classList.toggle('pb-0.5', active);
+            link.classList.toggle('text-[#cfc6af]', !active);
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+
+    document.querySelectorAll('section[id]').forEach(s => navObserver.observe(s));
+
+    // ─── Scroll reveal ────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = (i % 4) * 80 + 'ms';
+      revealObserver.observe(el);
+    });
+
+    // Trigger hero reveals immediately
+    window.addEventListener('load', () => {
+      document.querySelectorAll('#home .reveal').forEach(el => el.classList.add('visible'));
+    });
+
+    // ─── Portfolio filter + bento ─────────────────────────────
+    // Each bento item has an inline style that may include grid-column.
+    // We must preserve col-span when showing items.
+    const bentoItems = document.querySelectorAll('#portfolio-grid [data-category]');
+
+    // Store original col-span per item
+    bentoItems.forEach(item => {
+      item._bentoCol = item.style.gridColumn || '';
+    });
+
+    function applyFilter(filter) {
+      bentoItems.forEach(item => {
+        if (item.dataset.category === filter) {
+          item.style.display = '';
+          if (item._bentoCol) item.style.gridColumn = item._bentoCol;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.classList.remove('text-primary-fixed', 'border-b', 'border-primary-fixed');
+          b.classList.add('text-on-surface-variant');
+        });
+        btn.classList.add('text-primary-fixed', 'border-b', 'border-primary-fixed');
+        btn.classList.remove('text-on-surface-variant');
+        applyFilter(btn.dataset.filter);
+      });
+    });
+
+    // Default: show drone on load
+    applyFilter('drone');
+
+    // ─── Bento lightbox ───────────────────────────────────────
+    const lightbox   = document.getElementById('gallery-lightbox');
+    const lbImg      = document.getElementById('lightbox-img');
+    const lbCount    = document.getElementById('lb-count');
+    const lbThumbs   = document.getElementById('lb-thumbs');
+    const lbClose    = document.getElementById('lb-close');
+    const lbPrev     = document.getElementById('lb-prev');
+    const lbNext     = document.getElementById('lb-next');
+    let lbItems = [], lbIndex = 0;
+
+    function buildThumbRail() {
+      lbThumbs.innerHTML = '';
+      lbItems.forEach((item, i) => {
+        const t = document.createElement('img');
+        t.src = item.dataset.src;
+        t.className = 'lb-thumb' + (i === lbIndex ? ' active' : '');
+        t.addEventListener('click', () => goTo(i));
+        lbThumbs.appendChild(t);
+      });
+    }
+
+    function goTo(i) {
+      lbIndex = (i + lbItems.length) % lbItems.length;
+      lbImg.classList.add('fading');
+      setTimeout(() => {
+        lbImg.src = lbItems[lbIndex].dataset.src;
+        lbImg.alt = lbItems[lbIndex].dataset.label || '';
+        lbImg.classList.remove('fading');
+      }, 220);
+      lbCount.textContent = (lbIndex + 1) + ' / ' + lbItems.length;
+      lbThumbs.querySelectorAll('.lb-thumb').forEach((t, j) => t.classList.toggle('active', j === lbIndex));
+      // Scroll active thumb into view
+      const active = lbThumbs.children[lbIndex];
+      if (active) active.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    function openLightbox(clickedItem) {
+      const cat = clickedItem.dataset.category;
+      lbItems = Array.from(bentoItems).filter(el => el.dataset.category === cat && el.style.display !== 'none');
+      lbIndex = lbItems.indexOf(clickedItem);
+      if (lbIndex < 0) lbIndex = 0;
+      lbImg.src = lbItems[lbIndex].dataset.src;
+      lbImg.alt = lbItems[lbIndex].dataset.label || '';
+      lbCount.textContent = (lbIndex + 1) + ' / ' + lbItems.length;
+      buildThumbRail();
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    bentoItems.forEach(item => {
+      item.addEventListener('click', () => openLightbox(item));
+    });
+
+    lbClose.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+    });
+    lbPrev.addEventListener('click', (e) => { e.stopPropagation(); goTo(lbIndex - 1); });
+    lbNext.addEventListener('click', (e) => { e.stopPropagation(); goTo(lbIndex + 1); });
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'ArrowLeft')  goTo(lbIndex - 1);
+      if (e.key === 'ArrowRight') goTo(lbIndex + 1);
+      if (e.key === 'Escape')     { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
+    });
+
+    // ─── Testimonials carousel ────────────────────────────────
+    const track  = document.getElementById('testimonial-track');
+    const dots   = document.getElementById('t-dots');
+    const slides = track ? track.querySelectorAll('.testimonial-slide') : [];
+    let tIdx = 0, tTimer;
+
+    function buildDots() {
+      if (!dots) return;
+      dots.innerHTML = '';
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'dot-btn' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        d.addEventListener('click', () => tGoTo(i));
+        dots.appendChild(d);
+      });
+    }
+
+    function tGoTo(i) {
+      tIdx = (i + slides.length) % slides.length;
+      if (track) track.style.transform = 'translateX(-' + (tIdx * 100) + '%)';
+      if (dots) dots.querySelectorAll('.dot-btn').forEach((d, j) => d.classList.toggle('active', j === tIdx));
+      clearInterval(tTimer);
+      tTimer = setInterval(() => tGoTo(tIdx + 1), 5500);
+    }
+
+    if (slides.length > 0) {
+      buildDots();
+      document.getElementById('t-prev')?.addEventListener('click', () => tGoTo(tIdx - 1));
+      document.getElementById('t-next')?.addEventListener('click', () => tGoTo(tIdx + 1));
+      tTimer = setInterval(() => tGoTo(tIdx + 1), 5500);
+    }
+
+    // ─── Form submit → WhatsApp ───────────────────────────────
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const name    = (form.elements['name']?.value    || '').trim();
+      const email   = (form.elements['email']?.value   || '').trim();
+      const phone   = (form.elements['phone']?.value   || '').trim();
+      const pkg     = (form.elements['package']?.value || '').trim();
+      const message = (form.elements['message']?.value || '').trim();
+
+      const text = [
+        '👋 *New Inquiry — Vanguard Studios*',
+        '',
+        `*Name:* ${name}`,
+        email   ? `*Email:* ${email}`   : null,
+        phone   ? `*Phone:* ${phone}`   : null,
+        pkg     ? `*Package:* ${pkg}`   : null,
+        message ? `*Message:* ${message}` : null,
+      ].filter(Boolean).join('\n');
+
+      window.open('https://wa.me/message/MKKMXUJB2KGXN1?text=' + encodeURIComponent(text), '_blank');
+    }
+
+    // ─── Navbar shrink on scroll ──────────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        navbar.classList.add('py-0');
+        navbar.querySelector('div').classList.add('py-3');
+      } else {
+        navbar.classList.remove('py-0');
+        navbar.querySelector('div').classList.remove('py-3');
+      }
+    });
+  </script>
+
+</body>
+
+</html>
