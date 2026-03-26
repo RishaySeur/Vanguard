@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../portfolio_featured_projects"
+		},
+		{
+			"path": "../services_investment"
+		},
+		{
+			"path": "../book_your_consultation"
+		},
+		{
+			"path": "../home_cinematic_real_estate_marketing"
+		}
+	],
+	"settings": {}
+}
