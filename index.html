@@ -721,6 +721,301 @@
       transform: rotateX(55deg) rotateZ(-25deg) scale(1);
       transition: all 2.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+    /* ══════════════════════════════════════════════════════
+       SUNRISE UPGRADE — Warmer, Brighter, Cinematic Flow
+    ══════════════════════════════════════════════════════ */
+
+    body { background-color: #111009 !important; }
+
+    /* ─── Hero V2 Layouts & Ambience ──────────────────── */
+    .hero-v2-bg {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 110%, rgba(255,140,40,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 15% 85%, rgba(255,225,112,0.11) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 60% at 85% 15%, rgba(255,80,20,0.07) 0%, transparent 50%);
+    }
+    .hero-v2-glow {
+      position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
+      width: 85%; height: 55%; z-index: 3; pointer-events: none;
+      background: radial-gradient(ellipse at bottom, rgba(255,140,40,0.2) 0%, transparent 70%);
+      filter: blur(55px);
+    }
+    .sunrise-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 42%;
+      background: linear-gradient(to top, rgba(11,8,4,0.94) 0%, transparent 100%);
+      pointer-events: none; z-index: 5;
+    }
+    .hero-img-strip {
+      position: absolute; inset: 0; z-index: 1;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+    }
+    .hero-img-strip-item { overflow: hidden; }
+    .hero-img-strip-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.28) saturate(0.35);
+      transition: filter 8s ease;
+    }
+    @media (max-width: 640px) {
+      .hero-img-strip { grid-template-columns: 1fr; }
+      .hero-img-strip-item:not(:first-child) { display: none; }
+    }
+
+    /* ─── V2 Badge ────────────────────────────────────── */
+    .hero-v2-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(255,225,112,0.07);
+      border: 1px solid rgba(255,225,112,0.2);
+      padding: 7px 20px;
+      font-family: 'Space Grotesk', monospace; font-size: 0.58rem;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: rgba(255,225,112,0.78); margin-bottom: 2.25rem;
+      animation: v2-fade-up 1s ease 0.05s both;
+    }
+    .hero-v2-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: #ffe170; flex-shrink: 0;
+      animation: pulse-badge 2.4s ease infinite;
+      box-shadow: 0 0 8px rgba(255,225,112,0.9);
+    }
+    @keyframes pulse-badge {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 8px rgba(255,225,112,0.9); }
+      50% { opacity: 0.45; transform: scale(0.65); box-shadow: 0 0 3px rgba(255,225,112,0.4); }
+    }
+
+    /* ─── V2 Title ────────────────────────────────────── */
+    .hero-v2-title {
+      font-family: 'Epilogue', sans-serif;
+      font-size: clamp(3.5rem, 11vw, 10.5rem);
+      font-weight: 900; line-height: 0.88;
+      letter-spacing: -0.04em; text-transform: uppercase;
+      color: #eae5dc; margin-bottom: 1.75rem;
+    }
+    .hero-v2-title .gold-line {
+      color: #ffe170;
+      /* layered glow — many fine steps so light fades imperceptibly, no hard edge */
+      text-shadow:
+        0 0 12px rgba(255,225,112,0.65),
+        0 0 25px rgba(255,225,112,0.45),
+        0 0 45px rgba(255,225,112,0.30),
+        0 0 75px rgba(255,200,80,0.20),
+        0 0 110px rgba(255,160,40,0.13),
+        0 0 160px rgba(255,120,30,0.07),
+        0 0 220px rgba(255,100,20,0.04);
+    }
+
+    /* ─── Word reveal ─────────────────────────────────── */
+    .word-reveal {
+      display: inline-block;
+      overflow: clip;
+      overflow-clip-margin: 120px;
+      vertical-align: top;
+    }
+    .word-reveal-inner {
+      display: inline-block;
+      transform: translateY(108%);
+      animation: word-slide-up 0.88s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes word-slide-up { to { transform: translateY(0); } }
+
+    /* ─── V2 Sub ──────────────────────────────────────── */
+    .hero-v2-sub {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(0.65rem, 1.3vw, 0.88rem);
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(207,198,175,0.55);
+      margin-bottom: 3rem;
+      animation: v2-fade-up 1s ease 0.68s both;
+      max-width: 500px;
+    }
+    @keyframes v2-fade-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Center content ──────────────────────────────── */
+    .hero-center-content {
+      position: absolute; inset: 0; z-index: 20;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      /* push center point down to clear the fixed nav (~76px) */
+      padding: calc(3.5rem + 76px) clamp(1.5rem, 5vw, 4rem) 7rem;
+      pointer-events: none;
+    }
+    @media (max-width: 640px) {
+      .hero-center-content {
+        padding: calc(2.5rem + 72px) clamp(1.25rem, 4vw, 2rem) 7rem;
+      }
+    }
+
+    /* ─── Hero bottom bar ─────────────────────────────── */
+    .hero-v2-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 20;
+      padding: 1.5rem clamp(1.5rem, 4vw, 4rem);
+      display: flex; justify-content: space-between; align-items: flex-end;
+      pointer-events: none;
+    }
+    .hero-stats-mini { display: flex; gap: 2rem; align-items: flex-end; }
+    .hero-stats-mini-item { text-align: center; }
+    .hero-stats-mini-val {
+      font-family: 'Epilogue', sans-serif;
+      font-size: 1.5rem; font-weight: 900; color: #ffe170; display: block;
+      text-shadow: 0 0 20px rgba(255,225,112,0.45);
+      animation: v2-fade-up 1s ease 1.1s both;
+    }
+    .hero-stats-mini-lbl {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.49rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(207,198,175,0.42);
+    }
+    @media (max-width: 640px) {
+      .hero-stats-mini { gap: 1.2rem; }
+      .hero-stats-mini-val { font-size: 1.15rem; }
+      .hero-v2-bottom { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+      .hero-caption { display: none; }
+      .hero-center-content { padding-bottom: 7rem; }
+    }
+
+    /* ─── Particles ───────────────────────────────────── */
+    .particle {
+      position: absolute; border-radius: 50%;
+      pointer-events: none; animation: float-up linear infinite; opacity: 0;
+    }
+    @keyframes float-up {
+      0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+      8% { opacity: 0.85; }
+      88% { opacity: 0.35; }
+      100% { transform: translateY(-100vh) translateX(var(--drift, 0px)) scale(0.15); opacity: 0; }
+    }
+
+    /* ─── Section glow tops ──────────────────────────── */
+    .glow-top { position: relative; }
+    .glow-top::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 55%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,225,112,0.2), transparent);
+      pointer-events: none;
+    }
+
+    /* ─── Stat glow ───────────────────────────────────── */
+    .stat-glow { text-shadow: 0 0 28px rgba(255,225,112,0.5), 0 0 55px rgba(255,140,40,0.18) !important; }
+
+    /* ─── Service card hover ──────────────────────────── */
+    .service-card { transition: box-shadow 0.45s ease, transform 0.35s ease; }
+    .service-card:hover {
+      box-shadow: 0 0 55px -15px rgba(255,225,112,0.2), inset 0 1px 0 rgba(255,225,112,0.09);
+      transform: translateY(-3px);
+    }
+
+    /* ─── Testimonials section ────────────────────────── */
+    .testimonials-section {
+      background: linear-gradient(170deg, #100e0b 0%, #141109 40%, #111009 100%) !important;
+      position: relative;
+    }
+    .testimonials-section::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 75% 55% at 50% 50%, rgba(255,140,30,0.07) 0%, transparent 68%);
+    }
+    .testimonial-card {
+      background: linear-gradient(135deg, rgba(32,26,18,0.97) 0%, rgba(22,18,12,0.99) 100%) !important;
+      border: 1px solid rgba(255,225,112,0.12) !important;
+      box-shadow: 0 4px 45px -10px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,225,112,0.07) !important;
+      position: relative; overflow: hidden;
+    }
+    .testimonial-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,225,112,0.32), transparent);
+    }
+    .testimonial-card::after {
+      content: ''; position: absolute; bottom: 0; right: 0;
+      width: 220px; height: 220px; pointer-events: none;
+      background: radial-gradient(circle, rgba(255,140,40,0.07) 0%, transparent 70%);
+    }
+
+    /* ─── Pricing card hover ─────────────────────────── */
+    .pricing-card { transition: box-shadow 0.4s ease, transform 0.35s ease; }
+    .pricing-card:hover {
+      box-shadow:
+        0 20px 60px -18px rgba(255,225,112,0.18),
+        0 0 0 1px rgba(255,225,112,0.08);
+      transform: translateY(-5px);
+    }
+    /* Elite centre card — lifts higher, glows much brighter */
+    .pricing-card.pricing-elite {
+      transition: box-shadow 0.4s ease, transform 0.35s ease;
+    }
+    .pricing-card.pricing-elite:hover {
+      box-shadow:
+        0 0 0 1px rgba(255,225,112,0.35),
+        0 25px 80px -15px rgba(255,225,112,0.55),
+        0 0 60px -10px rgba(255,200,60,0.30),
+        0 0 120px -20px rgba(255,160,30,0.18);
+      transform: translateY(-8px);
+    }
+
+    /* ─── Founder image glow ─────────────────────────── */
+    .founder-wrap {
+      box-shadow: 0 0 90px -25px rgba(255,140,40,0.28), 0 45px 85px -30px rgba(0,0,0,0.65);
+    }
+
+    /* ─── CTA section ────────────────────────────────── */
+    .cta-section {
+      background:
+        radial-gradient(ellipse 65% 55% at 50% 100%, rgba(255,140,30,0.09) 0%, transparent 65%),
+        #131210 !important;
+    }
+
+    /* ─── Mobile hero text ───────────────────────────── */
+    @media (max-width: 640px) {
+      .hero-v2-title { font-size: clamp(3rem, 17vw, 5.5rem); line-height: 0.9; }
+      .hero-v2-badge { font-size: 0.5rem; padding: 6px 14px; margin-bottom: 1.5rem; }
+      .hero-v2-sub { font-size: 0.63rem; margin-bottom: 2rem; letter-spacing: 0.12em; }
+      .hero-ctas { flex-direction: column; align-items: center; gap: 1.2rem; }
+      .hero-btn-primary { text-align: center; }
+    }
+    @media (max-width: 768px) {
+      .hero-v2-title { letter-spacing: -0.03em; }
+    }
+
+    /* ─── Warm section backgrounds ───────────────────── */
+    .warm-surface { background-color: #131210 !important; }
+    .warm-surface-low { background-color: #100e0c !important; }
+    .warm-surface-lowest { background-color: #0e0c09 !important; }
+
+    /* ─── Section connecting gradients ──────────────── */
+    .section-glow-top::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 80px;
+      background: linear-gradient(to bottom, rgba(255,225,112,0.025), transparent);
+      pointer-events: none;
+    }
+
+    /* ─── Floating quote accent ──────────────────────── */
+    .quote-gold-bg {
+      background: linear-gradient(135deg, rgba(30,24,14,0.98) 0%, rgba(24,19,10,1) 100%);
+      border: 1px solid rgba(255,225,112,0.15);
+      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,225,112,0.04);
+    }
+
+    /* ─── CTA ring pulse ─────────────────────────────── */
+    @keyframes cta-ring-pulse {
+      0%, 100% { opacity: 0.5; transform: translate(-50%,-50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%,-50%) scale(1.04); }
+    }
+
+    /* ─── Mobile general ─────────────────────────────── */
+    @media (max-width: 640px) {
+      h1, h2, h3 { word-break: break-word; hyphens: auto; }
+      .font-headline { line-height: 1 !important; }
+      /* contact header scales down on mobile */
+      #contact h1 { font-size: clamp(2.5rem, 12vw, 3.75rem) !important; }
+      /* about founder text readable on small screens */
+      #about .border-l { padding-left: 1.25rem; }
+      /* stats mini on mobile */
+      .hero-stats-mini-val { font-size: 1rem; }
+      /* pricing cards full width stacked */
+      #pricing .grid { gap: 1rem; }
+    }
   </style>
 </head>
 
@@ -790,12 +1085,12 @@
 
 
   <!-- ══════════════════════════════════════════════════════════
-     HERO — Halide Topo (adapted)
+     HERO — Cinematic Full-Screen (v2)
 ═══════════════════════════════════════════════════════════ -->
   <section id="home"
-    style="position:relative;height:100vh;overflow:hidden;background:#0e0e0e;display:flex;align-items:center;justify-content:center;">
+    style="position:relative;height:100vh;min-height:600px;overflow:hidden;background:#0c0907;display:flex;align-items:center;justify-content:center;">
 
-    <!-- SVG grain filter definition -->
+    <!-- SVG grain filter -->
     <svg style="position:absolute;width:0;height:0;" aria-hidden="true">
       <filter id="hero-grain-filter" x="0%" y="0%" width="100%" height="100%">
         <feTurbulence type="fractalNoise" baseFrequency="0.68" numOctaves="4" stitchTiles="stitch" />
@@ -803,84 +1098,83 @@
       </filter>
     </svg>
 
+    <!-- 3-panel cinematic image strip -->
+    <div class="hero-img-strip">
+      <div class="hero-img-strip-item"><img src="media/Drone-1.jpg" alt="" /></div>
+      <div class="hero-img-strip-item"><img src="media/House-26.jpg" alt="" /></div>
+      <div class="hero-img-strip-item"><img src="media/Lounge-2.jpg" alt="" /></div>
+    </div>
+
+    <!-- Sunrise ambient gradients -->
+    <div class="hero-v2-bg"></div>
+    <div class="hero-v2-glow"></div>
+    <div class="sunrise-overlay"></div>
+
     <!-- Film grain overlay -->
     <div class="hero-grain"></div>
 
-    <!-- ─ Interface overlay (title + nav metadata) ─────── -->
-    <div class="hero-interface">
+    <!-- Gold dust particles -->
+    <div id="hero-particles" style="position:absolute;inset:0;z-index:10;pointer-events:none;overflow:hidden;"></div>
 
-      <!-- Top meta bar -->
-      <div class="hero-topbar">
-        <span class="hero-topbar-left">Vanguard Studios</span>
-        <span class="hero-topbar-right">
-          29.8587° S — 31.0218° E<br />
-          PRODUCTION HOUSE / EST. 2025
-        </span>
+    <!-- Top meta corners -->
+    <div style="position:absolute;top:0;left:0;right:0;padding:clamp(1.5rem,4vw,4rem);display:flex;justify-content:space-between;align-items:flex-start;z-index:20;pointer-events:none;">
+      <span class="hero-topbar-left" style="animation:v2-fade-up 1s ease 0.1s both;">Vanguard Studios</span>
+      <span class="hero-topbar-right" style="animation:v2-fade-up 1s ease 0.2s both;">
+        29.8587° S — 31.0218° E<br />
+        PRODUCTION HOUSE / EST. 2025
+      </span>
+    </div>
+
+    <!-- Centered content -->
+    <div class="hero-center-content">
+
+      <!-- Live badge -->
+      <div class="hero-v2-badge" style="pointer-events:auto;">
+        <span class="hero-v2-badge-dot"></span>
+        CINEMATIC REAL ESTATE · KWAZULU-NATAL
       </div>
 
-      <!-- Main title — blends through canvas -->
-      <h1 class="hero-title">
-        ELEVATE<br />
-        THE<br />
-        <span class="gold-stroke">STANDARD</span>
+      <!-- Headline with staggered word reveal -->
+      <h1 class="hero-v2-title">
+        <span class="word-reveal"><span class="word-reveal-inner" style="animation-delay:0.22s;">ELEVATE</span></span><br>
+        <span class="word-reveal"><span class="word-reveal-inner" style="animation-delay:0.38s;">THE</span></span><br>
+        <span class="word-reveal"><span class="word-reveal-inner gold-line" style="animation-delay:0.55s;">STANDARD</span></span>
       </h1>
 
-      <!-- Bottom row — caption + CTAs -->
-      <div class="hero-bottom">
-        <p class="hero-caption">
-          [ 2025 PRODUCTION ]<br />
-          CINEMATIC REAL ESTATE REELS · KWAZULU-NATAL
-        </p>
-        <div class="hero-ctas">
-          <a href="#portfolio" class="hero-btn-primary">View Showreel</a>
-          <a href="#pricing" class="hero-btn-ghost">Our Packages</a>
-        </div>
+      <!-- Subtitle -->
+      <p class="hero-v2-sub">
+        Cinematic listing reels &nbsp;·&nbsp; Delivered in 48 hours &nbsp;·&nbsp; KZN Province-wide
+      </p>
+
+      <!-- CTA row -->
+      <div class="hero-ctas" style="pointer-events:auto;animation:v2-fade-up 1s ease 0.92s both;">
+        <a href="#portfolio" class="hero-btn-primary">View Showreel</a>
+        <a href="#pricing" class="hero-btn-ghost">Our Packages</a>
       </div>
 
     </div>
 
-    <!-- ─ 3D perspective viewport ─────────────────────── -->
-    <div class="hero-viewport">
-      <div class="hero-canvas hero-entrance" id="hero-canvas">
-
-        <!-- Layered real estate imagery -->
-        <div class="hero-layer hero-layer-1" id="hero-layer-0"></div>
-        <div class="hero-layer hero-layer-2" id="hero-layer-1"></div>
-        <div class="hero-layer hero-layer-3" id="hero-layer-2"></div>
-
-        <!-- Topographic contour overlay -->
-        <div class="hero-contours"></div>
-
-        <!-- Gold edge glow -->
-        <div class="hero-canvas-glow"></div>
-
-        <!-- ── Floating Property Card ──────────────────── -->
-        <div class="hero-prop-card" id="hero-card">
-          <img class="hero-prop-card-img" src="media/Pool-1.jpg" alt="KZN Listing — Vanguard Studios" />
-          <div class="hero-prop-card-body">
-            <span class="hero-prop-card-tag">Real Shoot · KZN Midlands</span>
-            <div class="hero-prop-card-name">Manor Estate</div>
-            <div class="hero-prop-card-loc">Howick, KwaZulu-Natal</div>
-            <div class="hero-prop-card-divider"></div>
-            <div class="hero-prop-card-stats">
-              <div>
-                <span class="hero-prop-stat-val">48h</span>
-                <span class="hero-prop-stat-lbl">Turnaround</span>
-              </div>
-              <div>
-                <span class="hero-prop-stat-val">6</span>
-                <span class="hero-prop-stat-lbl">Platforms</span>
-              </div>
-              <div>
-                <span class="hero-prop-stat-val">4K</span>
-                <span class="hero-prop-stat-lbl">Drone</span>
-              </div>
-            </div>
-          </div>
+    <!-- Bottom stats + caption bar -->
+    <div class="hero-v2-bottom">
+      <p class="hero-caption">
+        [ 2025 PRODUCTION ]<br />
+        CINEMATIC REAL ESTATE REELS · KZN
+      </p>
+      <div class="hero-stats-mini">
+        <div class="hero-stats-mini-item">
+          <span class="hero-stats-mini-val">48h</span>
+          <span class="hero-stats-mini-lbl">Turnaround</span>
         </div>
-
-      </div><!-- /hero-canvas -->
-    </div><!-- /hero-viewport -->
+        <div class="hero-stats-mini-item">
+          <span class="hero-stats-mini-val">6</span>
+          <span class="hero-stats-mini-lbl">Platforms</span>
+        </div>
+        <div class="hero-stats-mini-item">
+          <span class="hero-stats-mini-val">4K</span>
+          <span class="hero-stats-mini-lbl">Drone</span>
+        </div>
+      </div>
+    </div>
 
     <!-- Scroll hint -->
     <div class="hero-scroll-hint">
@@ -894,7 +1188,7 @@
   <!-- ══════════════════════════════════════════════════════════
      SERVICES BENTO — Section 2
 ═══════════════════════════════════════════════════════════ -->
-  <section id="services" class="py-28 md:py-40 px-6 md:px-10 bg-surface-container-lowest">
+  <section id="services" class="py-20 md:py-32 px-6 md:px-10 bg-surface-container-lowest glow-top relative overflow-hidden">
     <div class="max-w-7xl mx-auto">
 
       <!-- Section header -->
@@ -914,7 +1208,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
         <!-- Listing Reels -->
-        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal">
+        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal service-card">
           <img
             class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
             src="media/House-26.jpg" alt="Listing shoot — Vanguard Studios" />
@@ -928,7 +1222,7 @@
         </div>
 
         <!-- 4K Drone -->
-        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal">
+        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal service-card">
           <img
             class="absolute inset-0 w-full h-full object-cover opacity-55 group-hover:scale-105 transition-transform duration-700"
             src="media/Drone-6.jpg" alt="Aerial drone — Vanguard Studios" />
@@ -942,7 +1236,7 @@
         </div>
 
         <!-- Agent Brand Reels -->
-        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal">
+        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal service-card">
           <img
             class="absolute inset-0 w-full h-full object-cover opacity-55 group-hover:scale-105 transition-transform duration-700"
             src="media/Padel-10.jpg" alt="Lifestyle shoot — Vanguard Studios" />
@@ -956,7 +1250,7 @@
         </div>
 
         <!-- Multi-Platform Delivery -->
-        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal">
+        <div class="group relative overflow-hidden bg-surface-container h-[420px] reveal service-card">
           <img
             class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
             src="media/Kitchen-1.jpg" alt="Interior shoot — Vanguard Studios" />
@@ -990,7 +1284,7 @@
   <!-- ══════════════════════════════════════════════════════════
      PORTFOLIO — Section 3
 ═══════════════════════════════════════════════════════════ -->
-  <section id="portfolio" class="py-28 md:py-40 bg-surface">
+  <section id="portfolio" class="py-20 md:py-32 bg-surface glow-top relative">
 
     <!-- Header -->
     <div class="px-6 md:px-10 mb-14">
@@ -1217,7 +1511,7 @@
   <!-- ══════════════════════════════════════════════════════════
      RESULTS & STATS — Section 4
 ═══════════════════════════════════════════════════════════ -->
-  <section id="results" class="py-28 md:py-40 bg-surface-container-low relative overflow-hidden">
+  <section id="results" class="py-20 md:py-32 bg-surface-container-low relative overflow-hidden glow-top">
 
     <!-- Decorative triangle -->
     <div class="absolute top-0 right-0 w-1/3 h-full opacity-[0.07] pointer-events-none">
@@ -1237,49 +1531,50 @@
         </h2>
         <div class="grid grid-cols-2 gap-10 border-l border-outline-variant/25 pl-10">
           <div>
-            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num">48h</div>
+            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num stat-glow">48h</div>
             <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">Reel Turnaround</div>
           </div>
           <div>
-            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num">6</div>
+            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num stat-glow">6</div>
             <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">Platforms Per Shoot
             </div>
           </div>
           <div>
-            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num">9</div>
+            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num stat-glow">9</div>
             <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">Days to Sold</div>
           </div>
           <div>
-            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num">10+</div>
+            <div class="font-headline text-5xl md:text-6xl font-black text-primary-fixed mb-2 stat-num stat-glow">10+</div>
             <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant">KZN Areas Covered
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Testimonial -->
+      <!-- Testimonial — Ryan Serhant Quote -->
       <div class="relative reveal">
-        <div class="bg-surface p-10 md:p-12 relative z-10">
+        <div class="quote-gold-bg p-10 md:p-12 relative z-10">
           <span class="material-symbols-outlined text-primary-fixed text-5xl mb-7 block"
-            style="font-variation-settings: 'FILL' 1;">format_quote</span>
-          <p class="font-body text-xl md:text-2xl italic leading-relaxed mb-10 text-on-surface">
-            "The drone footage alone was worth it. But the editing, the branding, the hook — everything done. I just hit
-            post. Listing sold in 9 days."
+            style="font-variation-settings: 'FILL' 1; text-shadow: 0 0 20px rgba(255,225,112,0.5);">format_quote</span>
+          <p class="font-body text-xl md:text-2xl italic leading-relaxed mb-10 text-on-surface"
+            style="text-shadow: 0 1px 20px rgba(0,0,0,0.3);">
+            "Your name is your brand. Your phone is your storefront. And your content — that's your competitive advantage."
           </p>
           <div class="flex items-center gap-4">
             <div
-              class="w-12 h-12 overflow-hidden bg-surface-container-high flex-shrink-0 flex items-center justify-center">
-              <span class="font-headline text-lg font-black text-primary-fixed">JV</span>
+              class="w-12 h-12 overflow-hidden flex-shrink-0 flex items-center justify-center"
+              style="background:rgba(255,225,112,0.1);border:1px solid rgba(255,225,112,0.25);">
+              <span class="font-headline text-lg font-black text-primary-fixed">RS</span>
             </div>
             <div>
-              <div class="font-headline text-sm font-bold uppercase tracking-tight">Jason V.</div>
-              <div class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase mt-0.5">Area
-                Domination · Ballito</div>
+              <div class="font-headline text-sm font-bold uppercase tracking-tight text-primary-fixed">Ryan Serhant</div>
+              <div class="font-label text-[10px] text-on-surface-variant tracking-widest uppercase mt-0.5">Founder, SERHANT. · Netflix's Owning Manhattan</div>
             </div>
           </div>
         </div>
-        <!-- Ghost border accent -->
-        <div class="absolute -top-3 -left-3 w-full h-full border border-primary-fixed/20 -z-10"></div>
+        <!-- Gold accent border -->
+        <div class="absolute -top-3 -left-3 w-full h-full -z-10"
+          style="border:1px solid rgba(255,225,112,0.18);box-shadow:0 0 40px -15px rgba(255,225,112,0.15);"></div>
       </div>
 
     </div>
@@ -1289,8 +1584,8 @@
   <!-- ══════════════════════════════════════════════════════════
      TESTIMONIALS STRIP
 ═══════════════════════════════════════════════════════════ -->
-  <section class="py-24 bg-surface-container-lowest">
-    <div class="max-w-7xl mx-auto px-6 md:px-10">
+  <section class="py-20 md:py-28 testimonials-section">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
       <div class="mb-12 reveal">
         <span class="font-label text-primary-fixed tracking-[0.3em] uppercase text-xs block mb-3">Industry Voice</span>
         <h2 class="font-headline text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none">Why Social
@@ -1301,7 +1596,7 @@
         <div id="testimonial-track">
 
           <div class="testimonial-slide">
-            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+            <div class="testimonial-card p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
               <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Social media is the greatest gift ever given to the real estate industry. I sell roughly one home per week from referrals generated through social media alone."</p>
               <div>
                 <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Ryan Serhant</div>
@@ -1311,7 +1606,7 @@
           </div>
 
           <div class="testimonial-slide">
-            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+            <div class="testimonial-card p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
               <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Committing fully to social media — and not treating it as a hobby or casual add-on — is what made it an invaluable part of our business."</p>
               <div>
                 <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Alexander Chingas</div>
@@ -1321,7 +1616,7 @@
           </div>
 
           <div class="testimonial-slide">
-            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+            <div class="testimonial-card p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
               <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Social media keeps me top of mind, helps me share trends and lifestyle insights, and positions me as a go-to resource for market and design trends."</p>
               <div>
                 <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Nikki Beauchamp</div>
@@ -1331,7 +1626,7 @@
           </div>
 
           <div class="testimonial-slide">
-            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+            <div class="testimonial-card p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
               <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Social media is a communication tool first, not an advertising platform — a way to stay genuinely connected to friends, family, and clients through every stage of their lives."</p>
               <div>
                 <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Mike Fabbri</div>
@@ -1341,7 +1636,7 @@
           </div>
 
           <div class="testimonial-slide">
-            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+            <div class="testimonial-card p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
               <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Social media is no longer just a marketing tool — it's a direct line to the client, enabling frictionless communication across state lines."</p>
               <div>
                 <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Chestler Jacobs Team</div>
@@ -1351,7 +1646,7 @@
           </div>
 
           <div class="testimonial-slide">
-            <div class="bg-surface-container-lowest p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
+            <div class="testimonial-card p-10 md:p-14 flex flex-col justify-between gap-10 min-h-[280px]">
               <p class="font-body text-on-surface text-lg md:text-xl leading-relaxed">"Social media branding is the foundation of longevity in real estate. Be intentional from day one so your brand becomes portable across companies and markets."</p>
               <div>
                 <div class="font-label text-xs font-bold uppercase tracking-widest text-on-surface">Rebecca Hidalgo</div>
@@ -1382,7 +1677,7 @@
   <!-- ══════════════════════════════════════════════════════════
      PRICING — Section 5
 ═══════════════════════════════════════════════════════════ -->
-  <section id="pricing" class="py-28 md:py-40 bg-surface-container-lowest">
+  <section id="pricing" class="py-20 md:py-32 bg-surface-container-lowest glow-top relative">
     <div class="max-w-7xl mx-auto px-6 md:px-10">
 
       <!-- Header -->
@@ -1398,7 +1693,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
 
         <!-- Listing Launch -->
-        <div class="bg-surface-container p-8 md:p-10 flex flex-col">
+        <div class="bg-surface-container p-8 md:p-10 flex flex-col pricing-card">
           <div class="mb-8">
             <span
               class="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant block mb-3">Once-off</span>
@@ -1429,7 +1724,7 @@
         </div>
 
         <!-- Agent Growth — Most Popular -->
-        <div class="bg-surface-container pricing-elite p-8 md:p-10 flex flex-col relative">
+        <div class="bg-surface-container pricing-elite pricing-card p-8 md:p-10 flex flex-col relative">
           <div
             class="absolute top-0 right-0 bg-primary-container text-on-primary font-label text-[9px] tracking-widest uppercase px-4 py-2">
             Most Popular
@@ -1473,7 +1768,7 @@
         </div>
 
         <!-- Area Domination -->
-        <div class="bg-surface-container p-8 md:p-10 flex flex-col">
+        <div class="bg-surface-container p-8 md:p-10 flex flex-col pricing-card">
           <div class="mb-8">
             <span
               class="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant block mb-3">Premium</span>
@@ -1525,7 +1820,7 @@
   <!-- ══════════════════════════════════════════════════════════
      ABOUT — Section 6
 ═══════════════════════════════════════════════════════════ -->
-  <section id="about" class="py-28 md:py-40 bg-surface relative overflow-hidden">
+  <section id="about" class="py-20 md:py-32 bg-surface relative overflow-hidden glow-top">
 
     <!-- Background accent -->
     <div
@@ -1538,7 +1833,7 @@
         <!-- Image side -->
         <div class="md:col-span-6 reveal">
           <div class="relative">
-            <div class="aspect-[4/5] w-full overflow-hidden bg-surface-container">
+            <div class="aspect-[4/5] w-full overflow-hidden bg-surface-container founder-wrap">
               <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 src="media/Founder.png" alt="Rishay — Founder, Vanguard Studios" />
             </div>
@@ -1558,31 +1853,17 @@
             Rishay —<br />Founder &amp;<br /><span class="text-primary-fixed">Director.</span>
           </h2>
           <div class="space-y-6 text-on-surface-variant leading-relaxed border-l border-outline-variant/30 pl-8">
-            <p>I'm a KZN-based videographer who spent years watching incredible KZN properties sell with mediocre
-              content. I started Vanguard Studios to fix that. I bring a cinematic eye and a deep understanding of what
-              KZN buyers respond to.</p>
-            <p>Every reel I produce is intentional — built to stop the scroll, not just look good while it passes. Shot
-              on Canon R50, DJI Mini 3 Pro drone, and DJI RS3 Mini gimbal.</p>
-            <p class="text-on-surface font-medium">Based in KZN. Shooting province-wide.</p>
-          </div>
-          <div class="mt-8 grid grid-cols-2 gap-4 border-l border-outline-variant/30 pl-8">
-            <div>
-              <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-1">Camera</div>
-              <div class="font-body text-sm">Canon R50 · 10–22mm &amp; 24–70mm</div>
-            </div>
-            <div>
-              <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-1">Aerial</div>
-              <div class="font-body text-sm">DJI Mini 3 Pro</div>
-            </div>
-            <div>
-              <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-1">Stabilisation
-              </div>
-              <div class="font-body text-sm">DJI RS3 Mini Gimbal</div>
-            </div>
-            <div>
-              <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-1">Post</div>
-              <div class="font-body text-sm">32GB Edit Suite</div>
-            </div>
+            <p>I'm Rishay, founder of Vanguard Studios and a KZN-based videographer with a background in real estate
+              content that goes deeper than most.</p>
+            <p>I grew up watching this province get sold short. Not by the agents — most of them are exceptional at what
+              they do — but by the content. Static photos taken in a hurry. Drone footage uploaded raw. Listings going
+              live with nothing that made a buyer <em>feel</em> anything.</p>
+            <p>And in a world where the first showing happens on a phone screen at 11pm on a Tuesday, that matters more
+              than most agents realise.</p>
+            <p>Vanguard Studios exists to close that gap. Every shoot I do is built around one question: what would make
+              a buyer feel something? Not just see a house — but <em>want</em> to live there. That's the difference
+              between a reel that performs and one that disappears.</p>
+            <p class="text-on-surface font-medium">If that sounds like what you've been looking for — let's talk.</p>
           </div>
           <div class="mt-12 flex flex-wrap gap-6">
             <a href="#contact"
@@ -1600,8 +1881,20 @@
   <!-- ══════════════════════════════════════════════════════════
      CONTACT / CONSULTATION — Section 7
 ═══════════════════════════════════════════════════════════ -->
-  <section id="contact" class="py-28 md:py-40 bg-surface-container-lowest">
-    <div class="max-w-7xl mx-auto px-6 md:px-10">
+  <section id="contact" class="py-20 md:py-32 bg-surface-container-lowest glow-top relative overflow-hidden">
+
+    <!-- Ambient warm glow orbs -->
+    <div style="position:absolute;top:-80px;left:-120px;width:500px;height:500px;border-radius:50%;
+      background:radial-gradient(circle, rgba(255,140,30,0.07) 0%, transparent 70%);
+      pointer-events:none;filter:blur(40px);z-index:0;"></div>
+    <div style="position:absolute;bottom:-60px;right:-80px;width:420px;height:420px;border-radius:50%;
+      background:radial-gradient(circle, rgba(255,225,112,0.06) 0%, transparent 70%);
+      pointer-events:none;filter:blur(50px);z-index:0;"></div>
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:300px;
+      background:radial-gradient(ellipse, rgba(255,160,40,0.04) 0%, transparent 65%);
+      pointer-events:none;filter:blur(30px);z-index:0;"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
 
       <!-- Hero header -->
       <header class="mb-20 grid md:grid-cols-12 gap-8 reveal">
@@ -1742,10 +2035,23 @@
   <!-- ══════════════════════════════════════════════════════════
      FINAL CTA BANNER
 ═══════════════════════════════════════════════════════════ -->
-  <section class="py-32 md:py-48 bg-surface text-center px-6 relative overflow-hidden">
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,225,112,0.06)_0%,_transparent_65%)] pointer-events-none">
-    </div>
+  <section class="py-24 md:py-36 cta-section text-center px-6 relative overflow-hidden">
+    <!-- layered ambient glow -->
+    <div class="absolute inset-0 pointer-events-none" style="
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255,140,30,0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 30% 70%, rgba(255,225,112,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 70% 30%, rgba(255,180,50,0.06) 0%, transparent 55%);
+    "></div>
+    <!-- subtle animated pulse ring -->
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+      width:600px;height:600px;border-radius:50%;
+      border:1px solid rgba(255,225,112,0.06);
+      animation:cta-ring-pulse 4s ease-in-out infinite;pointer-events:none;"></div>
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+      width:900px;height:900px;border-radius:50%;
+      border:1px solid rgba(255,225,112,0.03);
+      animation:cta-ring-pulse 4s ease-in-out 1.5s infinite;pointer-events:none;"></div>
     <div class="max-w-4xl mx-auto relative z-10 reveal">
       <h2 class="font-headline text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-none">
         Own Your<br />Area.
@@ -1804,77 +2110,68 @@
      JAVASCRIPT
 ═══════════════════════════════════════════════════════════ -->
   <script>
+    // ─── Word-reveal: release overflow after animation so glow bleeds freely ──
+    window.addEventListener('load', () => {
+      // longest delay (0.55s) + duration (0.88s) + buffer = ~2s
+      setTimeout(() => {
+        document.querySelectorAll('.word-reveal').forEach(el => {
+          el.style.overflow = 'visible';
+          el.style.overflowClipMargin = 'unset';
+        });
+      }, 2000);
+    });
+
       // ══════════════════════════════════════════════════════════
-      // HALIDE TOPO HERO — 3D parallax + entrance animation
+      // HERO V2 — Gold dust particles
       // ══════════════════════════════════════════════════════════
       (function () {
-        const canvas = document.getElementById('hero-canvas');
-        const card = document.getElementById('hero-card');
-        const layers = [
-          document.getElementById('hero-layer-0'),
-          document.getElementById('hero-layer-1'),
-          document.getElementById('hero-layer-2'),
-        ];
+        const container = document.getElementById('hero-particles');
+        if (!container) return;
 
-        // ── Entrance animation ──────────────────────────────
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            canvas.classList.remove('hero-entrance');
-            canvas.classList.add('hero-entrance-done');
-            // Fade in card slightly after canvas settles
-            if (card) {
-              card.style.opacity = '0';
-              card.style.transition = 'opacity 1s ease 1.6s';
-              setTimeout(() => { card.style.opacity = '1'; }, 60);
-            }
-          }, 250);
-        });
+        const colors = ['rgba(255,225,112,0.9)', 'rgba(255,180,60,0.8)', 'rgba(255,255,200,0.7)', 'rgba(255,200,80,0.6)'];
+        const count = window.innerWidth < 640 ? 14 : 28;
 
-        // ── Mouse parallax ──────────────────────────────────
-        let ticking = false;
+        for (let i = 0; i < count; i++) {
+          const p = document.createElement('div');
+          p.className = 'particle';
+          const size = Math.random() * 3 + 1;
+          const left = Math.random() * 100;
+          const delay = Math.random() * 10;
+          const duration = Math.random() * 12 + 10;
+          const drift = (Math.random() - 0.5) * 120;
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          p.style.cssText = `
+            width:${size}px; height:${size}px;
+            left:${left}%; bottom:${Math.random() * 20}%;
+            background:${color};
+            box-shadow: 0 0 ${size * 3}px ${color};
+            --drift:${drift}px;
+            animation-delay:${delay}s;
+            animation-duration:${duration}s;
+          `;
+          container.appendChild(p);
+        }
+
+        // Subtle parallax on hero images from mouse move
+        const heroSection = document.getElementById('home');
+        if (!heroSection) return;
+        const stripImgs = heroSection.querySelectorAll('.hero-img-strip-item img');
         window.addEventListener('mousemove', (e) => {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(() => {
-            const cx = window.innerWidth / 2;
-            const cy = window.innerHeight / 2;
-            const dx = (cx - e.clientX) / 28;
-            const dy = (cy - e.clientY) / 28;
-
-            // Tilt the whole canvas
-            canvas.style.transform = `rotateX(${55 + dy * 0.5}deg) rotateZ(${-25 + dx * 0.5}deg) scale(1)`;
-            canvas.style.transition = 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
-
-            // Move each layer at a different depth
-            layers.forEach((layer, i) => {
-              if (!layer) return;
-              const depth = (i + 1) * 14;
-              const mx = dx * (i + 1) * 0.22;
-              const my = dy * (i + 1) * 0.22;
-              layer.style.transform = `translateZ(${depth}px) translate(${mx}px, ${my}px)`;
-              layer.style.transition = 'transform 0.5s ease';
-            });
-
-            // Card floats slightly on parallax
-            if (card) {
-              const cx2 = dx * 0.6;
-              const cy2 = dy * 0.6;
-              card.style.transform = `translateZ(130px) translate(${cx2}px, ${cy2}px)`;
-              card.style.transition = 'transform 0.6s ease';
-            }
-
-            ticking = false;
+          const cx = window.innerWidth / 2;
+          const cy = window.innerHeight / 2;
+          const dx = (e.clientX - cx) / cx;
+          const dy = (e.clientY - cy) / cy;
+          stripImgs.forEach((img, i) => {
+            const factor = (i - 1) * 8;
+            img.style.transform = `scale(1.06) translate(${dx * factor}px, ${dy * factor * 0.5}px)`;
+            img.style.transition = 'transform 0.8s ease';
           });
         });
-
-        // Reset to default on mouse leave
-        window.addEventListener('mouseleave', () => {
-          canvas.style.transform = 'rotateX(55deg) rotateZ(-25deg) scale(1)';
-          canvas.style.transition = 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
-          layers.forEach((l, i) => {
-            if (l) { l.style.transform = `translateZ(${(i + 1) * 14}px)`; l.style.transition = 'transform 1s ease'; }
+        heroSection.addEventListener('mouseleave', () => {
+          stripImgs.forEach(img => {
+            img.style.transform = 'scale(1.0) translate(0,0)';
+            img.style.transition = 'transform 1.2s ease';
           });
-          if (card) { card.style.transform = 'translateZ(130px)'; }
         });
       })();
 
