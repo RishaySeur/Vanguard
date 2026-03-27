@@ -2374,26 +2374,49 @@
     }
 
     // ─── Form submit → WhatsApp ───────────────────────────────
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
       e.preventDefault();
-      const form = e.target;
+      const form    = e.target;
+      const btn     = form.querySelector('button[type="submit"]');
       const name    = (form.elements['name']?.value    || '').trim();
       const email   = (form.elements['email']?.value   || '').trim();
       const phone   = (form.elements['phone']?.value   || '').trim();
       const pkg     = (form.elements['package']?.value || '').trim();
       const message = (form.elements['message']?.value || '').trim();
 
+      // ── Disable button while submitting ──────────────────────
+      if (btn) { btn.disabled = true; btn.style.opacity = '0.6'; }
+
+      // ── 1. Log to Google Sheets ───────────────────────────────
+      const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxu13DnblkTMVXzFYZt-mtA-JsNsZLsJIamJrUiOkQyla3x568e9892O6tyo74TBVSlSA/exec';
+      try {
+        await fetch(SHEET_URL, {
+          method:  'POST',
+          mode:    'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ name, email, phone, package: pkg, message })
+        });
+      } catch (err) {
+        console.warn('Sheet log failed:', err);
+      }
+
+      // ── 2. Open WhatsApp with pre-filled message ──────────────
       const text = [
         '👋 *New Inquiry — Vanguard Studios*',
         '',
         `*Name:* ${name}`,
-        email   ? `*Email:* ${email}`   : null,
-        phone   ? `*Phone:* ${phone}`   : null,
-        pkg     ? `*Package:* ${pkg}`   : null,
+        email   ? `*Email:* ${email}`     : null,
+        phone   ? `*Phone:* ${phone}`     : null,
+        pkg     ? `*Package:* ${pkg}`     : null,
         message ? `*Message:* ${message}` : null,
       ].filter(Boolean).join('\n');
 
       window.open('https://wa.me/message/MKKMXUJB2KGXN1?text=' + encodeURIComponent(text), '_blank');
+
+      // ── 3. Show success + reset form ─────────────────────────
+      document.getElementById('form-success')?.classList.remove('hidden');
+      form.reset();
+      if (btn) { btn.disabled = false; btn.style.opacity = '1'; }
     }
 
     // ─── Navbar shrink on scroll ──────────────────────────────
