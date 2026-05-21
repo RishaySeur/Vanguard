@@ -118,6 +118,27 @@
       text-shadow: 0 0 20px rgba(255, 225, 112, 0.35);
     }
 
+    /* ─── Logo image glow ───────────────────────────────── */
+    .logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
+      filter:
+        drop-shadow(0 0 8px rgba(200, 150, 42, 0.55))
+        drop-shadow(0 0 18px rgba(200, 150, 42, 0.30))
+        drop-shadow(0 0 32px rgba(200, 150, 42, 0.15));
+      transition: filter 0.35s ease;
+    }
+    .logo-img:hover {
+      filter:
+        drop-shadow(0 0 10px rgba(229, 196, 62, 0.75))
+        drop-shadow(0 0 24px rgba(229, 196, 62, 0.45))
+        drop-shadow(0 0 48px rgba(229, 196, 62, 0.20));
+    }
+    @media (min-width: 768px) {
+      .logo-img { height: 60px; }
+    }
+
     /* ─── Hide scrollbar ─────────────────────────────────── */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
@@ -1723,10 +1744,8 @@
     <div class="flex justify-between items-center w-full px-6 md:px-10 py-5">
 
       <!-- Logo -->
-      <a href="#home"
-        class="text-xl md:text-2xl font-black tracking-tighter text-[#ffe170] font-headline uppercase select-none flex flex-col leading-none">
-        <span class="text-2xl md:text-3xl">XXII</span>
-        <span class="text-[9px] tracking-[0.2em] font-medium text-[#cfc6af] normal-case">TwentyTwo Property Media</span>
+      <a href="#home" class="select-none">
+        <img src="media/Logo%20with%20text" alt="XXII TwentyTwo Media" class="logo-img" />
       </a>
 
       <!-- Desktop links -->
