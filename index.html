@@ -124,19 +124,19 @@
       width: auto;
       display: block;
       filter:
-        drop-shadow(0 0 8px rgba(200, 150, 42, 0.55))
-        drop-shadow(0 0 18px rgba(200, 150, 42, 0.30))
-        drop-shadow(0 0 32px rgba(200, 150, 42, 0.15));
+        drop-shadow(0 0 8px rgba(200, 150, 42, 0.55)) drop-shadow(0 0 18px rgba(200, 150, 42, 0.30)) drop-shadow(0 0 32px rgba(200, 150, 42, 0.15));
       transition: filter 0.35s ease;
     }
+
     .logo-img:hover {
       filter:
-        drop-shadow(0 0 10px rgba(229, 196, 62, 0.75))
-        drop-shadow(0 0 24px rgba(229, 196, 62, 0.45))
-        drop-shadow(0 0 48px rgba(229, 196, 62, 0.20));
+        drop-shadow(0 0 10px rgba(229, 196, 62, 0.75)) drop-shadow(0 0 24px rgba(229, 196, 62, 0.45)) drop-shadow(0 0 48px rgba(229, 196, 62, 0.20));
     }
+
     @media (min-width: 768px) {
-      .logo-img { height: 60px; }
+      .logo-img {
+        height: 60px;
+      }
     }
 
     /* ─── Hide scrollbar ─────────────────────────────────── */
@@ -237,20 +237,6 @@
       transform: translateY(0);
     }
 
-    /* ─── Pricing highlight ─────────────────────────────── */
-    .pricing-elite {
-      position: relative;
-    }
-
-    .pricing-elite::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #ffe170, transparent);
-    }
 
     /* ══════════════════════════════════════════════════════
        HALIDE TOPO HERO
@@ -1221,31 +1207,7 @@
       background: radial-gradient(circle, rgba(255, 140, 40, 0.07) 0%, transparent 70%);
     }
 
-    /* ─── Pricing card hover ─────────────────────────── */
-    .pricing-card {
-      transition: box-shadow 0.4s ease, transform 0.35s ease;
-    }
 
-    .pricing-card:hover {
-      box-shadow:
-        0 20px 60px -18px rgba(255, 225, 112, 0.18),
-        0 0 0 1px rgba(255, 225, 112, 0.08);
-      transform: translateY(-5px);
-    }
-
-    /* Elite centre card — lifts higher, glows much brighter */
-    .pricing-card.pricing-elite {
-      transition: box-shadow 0.4s ease, transform 0.35s ease;
-    }
-
-    .pricing-card.pricing-elite:hover {
-      box-shadow:
-        0 0 0 1px rgba(255, 225, 112, 0.35),
-        0 25px 80px -15px rgba(255, 225, 112, 0.55),
-        0 0 60px -10px rgba(255, 200, 60, 0.30),
-        0 0 120px -20px rgba(255, 160, 30, 0.18);
-      transform: translateY(-8px);
-    }
 
     /* ─── Founder image glow ─────────────────────────── */
     .founder-wrap {
@@ -1371,10 +1333,7 @@
         font-size: 1rem;
       }
 
-      /* pricing cards full width stacked */
-      #pricing .grid {
-        gap: 1rem;
-      }
+
     }
 
     /* ══════════════════════════════════════════════════════
@@ -1756,8 +1715,7 @@
           class="nav-link font-headline tracking-tight uppercase font-bold text-sm text-[#cfc6af] hover:text-[#ffe170] transition-colors duration-300">Portfolio</a>
         <a href="#services"
           class="nav-link font-headline tracking-tight uppercase font-bold text-sm text-[#cfc6af] hover:text-[#ffe170] transition-colors duration-300">Services</a>
-        <a href="#pricing"
-          class="nav-link font-headline tracking-tight uppercase font-bold text-sm text-[#cfc6af] hover:text-[#ffe170] transition-colors duration-300">Pricing</a>
+
         <a href="#about"
           class="nav-link font-headline tracking-tight uppercase font-bold text-sm text-[#cfc6af] hover:text-[#ffe170] transition-colors duration-300">About</a>
       </div>
@@ -1789,9 +1747,7 @@
         <a href="#services"
           class="font-headline tracking-tight uppercase font-bold text-[#cfc6af] hover:text-[#ffe170] transition-colors"
           onclick="closeMobile()">Services</a>
-        <a href="#pricing"
-          class="font-headline tracking-tight uppercase font-bold text-[#cfc6af] hover:text-[#ffe170] transition-colors"
-          onclick="closeMobile()">Pricing</a>
+
         <a href="#about"
           class="font-headline tracking-tight uppercase font-bold text-[#cfc6af] hover:text-[#ffe170] transition-colors"
           onclick="closeMobile()">About</a>
@@ -1871,7 +1827,7 @@
       <!-- CTA row -->
       <div class="hero-ctas" style="pointer-events:auto;animation:v2-fade-up 1s ease 0.92s both;">
         <a href="#reels" class="hero-btn-primary">View Showreel</a>
-        <a href="#pricing" class="hero-btn-ghost">Our Packages</a>
+        <a href="#contact" class="hero-btn-ghost">Get In Touch</a>
       </div>
 
     </div>
@@ -2237,9 +2193,9 @@
 
       <!-- Sub-CTA -->
       <div class="mt-16 flex flex-wrap gap-6 items-center reveal">
-        <a href="#pricing"
+        <a href="#contact"
           class="bg-primary-container text-on-primary font-headline text-sm font-black uppercase tracking-widest px-10 py-4 rounded-sm hover:scale-95 transition-transform cta-shadow">
-          View Investment Packages
+          Book a Consultation
         </a>
         <a href="#portfolio"
           class="text-primary-fixed font-headline text-sm font-black uppercase tracking-widest border-b border-primary-fixed/40 hover:border-primary-fixed transition-all py-2">
@@ -2828,147 +2784,6 @@
   </section>
 
 
-  <!-- ══════════════════════════════════════════════════════════
-     PRICING — Section 5
-═══════════════════════════════════════════════════════════ -->
-  <section id="pricing" class="py-20 md:py-32 bg-surface-container-lowest glow-top relative">
-    <div class="max-w-7xl mx-auto px-6 md:px-10">
-
-      <!-- Header -->
-      <div class="mb-16 md:mb-24 reveal">
-        <span class="font-label text-primary-fixed tracking-[0.3em] uppercase text-xs mb-5 block">Investment
-          Packages</span>
-        <h2 class="font-headline text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none">
-          The XXII<br />Pricing.
-        </h2>
-      </div>
-
-      <!-- Pricing cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
-
-        <!-- Listing Launch -->
-        <div class="bg-surface-container p-8 md:p-10 flex flex-col pricing-card">
-          <div class="mb-8">
-            <span
-              class="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant block mb-3">Once-off</span>
-            <h3 class="font-headline text-2xl font-bold uppercase mb-2">Listing Launch</h3>
-            <p class="font-label text-[10px] tracking-widest uppercase text-primary-fixed">One listing, one shoot.
-              Everything you need to go live.</p>
-          </div>
-          <div class="font-headline text-4xl font-black mb-2">R5,500</div>
-          <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-8">Once-off</div>
-          <div class="space-y-4 mb-10 flex-1">
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">Interior + exterior photography</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">3 social media reels</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">Delivered in 5 business days</span>
-            </div>
-          </div>
-          <a href="#contact"
-            class="w-full py-4 text-[10px] font-label tracking-widest uppercase border border-outline-variant hover:border-on-surface-variant transition-colors duration-200 text-center block">
-            Get Started
-          </a>
-        </div>
-
-        <!-- Agent Growth — Most Popular -->
-        <div class="bg-surface-container pricing-elite pricing-card p-8 md:p-10 flex flex-col relative">
-          <div
-            class="absolute top-0 right-0 bg-primary-container text-on-primary font-label text-[9px] tracking-widest uppercase px-4 py-2">
-            Most Popular
-          </div>
-          <div class="mb-8">
-            <span
-              class="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant block mb-3">Monthly</span>
-            <h3 class="font-headline text-2xl font-bold uppercase mb-2 text-primary-fixed">Agent Growth</h3>
-            <p class="font-label text-[10px] tracking-widest uppercase text-primary-fixed">Two full listings per month
-              with ground and aerial coverage.</p>
-          </div>
-          <div class="font-headline text-4xl font-black text-primary-fixed mb-2">R12,000</div>
-          <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-8">Per month</div>
-          <div class="space-y-4 mb-10 flex-1">
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">Interior + exterior photography × 2
-                listings</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">Aerial stills (drone) × 2 listings</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">4 reels per listing (8 total)</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">Priority scheduling</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">Delivered in 4 business days</span>
-            </div>
-          </div>
-          <a href="#contact"
-            class="w-full py-4 text-[10px] font-label tracking-widest uppercase bg-primary-container text-on-primary font-bold hover:scale-95 transition-transform duration-200 cta-shadow text-center block">
-            Inquire Now
-          </a>
-        </div>
-
-        <!-- Area Domination -->
-        <div class="bg-surface-container p-8 md:p-10 flex flex-col pricing-card">
-          <div class="mb-8">
-            <span
-              class="font-label text-[10px] tracking-[0.2em] uppercase text-on-surface-variant block mb-3">Premium</span>
-            <h3 class="font-headline text-2xl font-bold uppercase mb-2">Area Domination</h3>
-            <p class="font-label text-[10px] tracking-widest uppercase text-primary-fixed">Built for top-performing
-              agents who want to own their market online.</p>
-          </div>
-          <div class="font-headline text-4xl font-black mb-2">R20,000</div>
-          <div class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mb-8">Per month</div>
-          <div class="space-y-4 mb-10 flex-1">
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">Interior + exterior photography × 4
-                listings</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">Aerial stills (drone) × 4 listings</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">5 reels per listing (20 total)</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">2 personal brand reels per month</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="material-symbols-outlined text-primary-fixed text-base mt-0.5">check</span>
-              <span class="font-body text-sm text-on-surface-variant">Same-week delivery</span>
-            </div>
-          </div>
-          <a href="#contact"
-            class="w-full py-4 text-[10px] font-label tracking-widest uppercase border border-outline-variant hover:border-on-surface-variant transition-colors duration-200 text-center block">
-            Inquire Now
-          </a>
-        </div>
-
-      </div>
-
-      <p class="font-label text-[10px] tracking-widest uppercase text-on-surface-variant mt-8 reveal">
-        * All packages include a discovery call before signing. Photography is included in all packages.
-      </p>
-
-    </div>
-  </section>
 
 
   <!-- ══════════════════════════════════════════════════════════
@@ -3010,16 +2825,16 @@
             <p>I'm Rishay, founder of TwentyTwo Property Media and a KZN-based videographer with a background in real
               estate
               content that goes deeper than most.</p>
-            <p>I grew up watching this province get sold short. Not by the agents — most of them are exceptional at what
-              they do — but by the content. Static photos taken in a hurry. Drone footage uploaded raw. Listings going
+            <p>I grew up watching this province get sold short. Not by the agents, most of them are exceptional at what
+              they do but by the content. Static photos taken in a hurry. Drone footage uploaded raw. Listings going
               live with nothing that made a buyer <em>feel</em> anything.</p>
             <p>And in a world where the first showing happens on a phone screen at 11pm on a Tuesday, that matters more
               than most agents realise.</p>
             <p>TwentyTwo Property Media exists to close that gap. Every shoot I do is built around one question: what
               would make
-              a buyer feel something? Not just see a house — but <em>want</em> to live there. That's the difference
+              a buyer feel something? Not just see a house but <em>want</em> to live there. That's the difference
               between a reel that performs and one that disappears.</p>
-            <p class="text-on-surface font-medium">If that sounds like what you've been looking for — let's talk.</p>
+            <p class="text-on-surface font-medium">If that sounds like what you've been looking for let's talk.</p>
           </div>
           <div class="mt-12 flex flex-wrap gap-6">
             <a href="#contact"
@@ -3101,15 +2916,15 @@
               <input class="input-field" placeholder="+27 (000) 000-0000" type="tel" name="phone" />
             </div>
             <div>
-              <label class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-3 block">Package
+              <label class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-3 block">Service
                 Interest</label>
               <select class="input-field appearance-none cursor-pointer" name="package" style="background-image: url(\"
                 data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'
                 fill='none' stroke='%23ffe170' stroke-width='2' %3E%3Cpolyline points='6 9 12 15 18 9'
                 %3E%3C/polyline%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: right 0 center;">
-                <option style="background:#131313">Listing Launch — R5,500 once-off</option>
-                <option style="background:#131313">Agent Growth — R12,000/month</option>
-                <option style="background:#131313">Area Domination — R20,000/month</option>
+                <option style="background:#131313">Listing Content</option>
+                <option style="background:#131313">Monthly Retainer</option>
+                <option style="background:#131313">Personal Branding</option>
                 <option style="background:#131313">Not sure yet — let's chat</option>
               </select>
             </div>
@@ -3248,8 +3063,7 @@
           class="font-label text-[10px] tracking-[0.15em] uppercase text-[#cfc6af] hover:text-white transition-colors opacity-80 hover:opacity-100">Portfolio</a>
         <a href="#services"
           class="font-label text-[10px] tracking-[0.15em] uppercase text-[#cfc6af] hover:text-white transition-colors opacity-80 hover:opacity-100">Services</a>
-        <a href="#pricing"
-          class="font-label text-[10px] tracking-[0.15em] uppercase text-[#cfc6af] hover:text-white transition-colors opacity-80 hover:opacity-100">Pricing</a>
+
         <a href="#about"
           class="font-label text-[10px] tracking-[0.15em] uppercase text-[#cfc6af] hover:text-white transition-colors opacity-80 hover:opacity-100">About</a>
         <a href="#contact"
